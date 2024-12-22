@@ -153,5 +153,3 @@ For queries, reach out to the project team at:
 - **Sathiri Vyshnavi (TM2):** 
 - **Karumuru Jahnavi (TM3):**
 ```
-
-This version includes **Coral**, **Teal**, and **Black** in the color palette alongside their suggested usages and hex codes. Let me know if you need further refinements!
