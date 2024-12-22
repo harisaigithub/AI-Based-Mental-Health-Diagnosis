@@ -148,10 +148,10 @@ This is the **v1.0** release of the README. Updates will follow as new features 
 
 ## **Contact**
 For queries, reach out to the project team at:
-- **Sanala Bala Sree Varsha (TL):** varsha@example.com
-- **Parasa Hari Sai (TM1):** hari@example.com
-- **Sathiri Vyshnavi (TM2):** vyshnavi@example.com
-- **Karumuru Jahnavi (TM3):** jahnavi@example.com
+- **Sanala Bala Sree Varsha (TL):** @example.com
+- **Parasa Hari Sai (TM1):** harisaiparasa@gmail.com
+- **Sathiri Vyshnavi (TM2):** 
+- **Karumuru Jahnavi (TM3):**
 ```
 
 This version includes **Coral**, **Teal**, and **Black** in the color palette alongside their suggested usages and hex codes. Let me know if you need further refinements!
