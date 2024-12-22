@@ -118,6 +118,13 @@ This is the **v1.0** release of the README. Updates will follow as new features 
 *(Include screenshot here)*
 
 ---
+## **Figma Design**
+The user interface of this project was designed using Figma. You can view the complete design by clicking the link below:
+
+[View the complete Figma design here](https://www.figma.com/community/file/1451309568741892229/calmora-ai-powered-mental-health-diagnosis-system)
+
+If you find the design helpful or inspiring, please **like** and **leave a comment** on the Figma page. This helps me know that my design is appreciated and motivates me to create more amazing projects!
+--- 
 
 ## **Hosting Link**
 *(Insert hosting link here)*
