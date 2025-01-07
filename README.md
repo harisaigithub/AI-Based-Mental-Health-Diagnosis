@@ -218,8 +218,9 @@ Here’s the updated **Installation** section for a Python Django project:
 
 1. **Clone the Repository**  
    ```bash
-   git clone https://github.com/username/calmora.git  
-   cd calmora  
+   git clone https://github.com/harisaigithub/AI-Based-Mental-Health-Diagnosis  
+   cd Project
+   cd calmeroProject  
    ```
 
 2. **Create and Activate a Virtual Environment**  
