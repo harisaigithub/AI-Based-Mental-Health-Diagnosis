@@ -1,0 +1,99 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+
+<section class="pt-xl-9" id="services" container-xl="container-xl">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-9 text-center mb-3">
+        <h5 class="text-danger">SERVICES</h5>
+        <h2>Our Services for Your Mental Well-being</h2>
+      </div>
+    </div>
+    <div class="row h-100 justify-content-center">
+      <div class="col-md-4 pt-4 px-md-2 px-lg-3">
+        <div class="card h-100 px-lg-5 card-span">
+          <div class="card-body d-flex flex-column justify-content-around">
+            <div class="text-center pt-5">
+              <img class="img-fluid" src="{% static 'assets/img/img4.avif' %}" width="200px" alt="..." />
+              <h5 class="my-4">AI-based Mental Health Assessment</h5>
+            </div>
+            <p>Receive an AI-powered analysis of your mental health through our state-of-the-art diagnostic tools.</p>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <span class="me-2"><i class="fas fa-circle text-primary" style="font-size: 0.5rem"></i></span>Personalized Assessment
+              </li>
+              <li class="mb-2">
+                <span class="me-2"><i class="fas fa-circle text-primary" style="font-size: 0.5rem"></i></span>Confidential Reports
+              </li>
+              <li class="mb-2">
+                <span class="me-2"><i class="fas fa-circle text-primary" style="font-size: 0.5rem"></i></span>24/7 Availability
+              </li>
+            </ul>
+            <div class="text-center my-5">
+              <div class="d-grid">
+                <button class="btn btn-outline-danger" type="submit">Learn more</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 pt-4 px-md-2 px-lg-3">
+        <div class="card h-100 px-lg-5 card-span">
+          <div class="card-body d-flex flex-column justify-content-around">
+            <div class="text-center pt-5">
+              <img class="img-fluid" src="{% static 'assets/img/img3.avif' %}" width="200px" alt="..." />
+              <h5 class="my-4">Therapist Matching</h5>
+            </div>
+            <p>Get matched with professional therapists based on your specific needs and preferences.</p>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <span class="me-2"><i class="fas fa-circle text-primary" style="font-size: 0.5rem"></i></span>Experienced Professionals
+              </li>
+              <li class="mb-2">
+                <span class="me-2"><i class="fas fa-circle text-primary" style="font-size: 0.5rem"></i></span>Customized Therapy Plans
+              </li>
+              <li class="mb-2">
+                <span class="me-2"><i class="fas fa-circle text-primary" style="font-size: 0.5rem"></i></span>Flexible Scheduling
+              </li>
+            </ul>
+            <div class="text-center my-5">
+              <div class="d-grid">
+                <button class="btn btn-danger hover-top btn-glow border-0" type="submit">Learn more</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 pt-4 px-md-2 px-lg-3">
+        <div class="card h-100 px-lg-5 card-span">
+          <div class="card-body d-flex flex-column justify-content-around">
+            <div class="text-center pt-5">
+              <img class="img-fluid" src="{% static 'assets/img/img5.png' %}" width="200px" alt="..." />
+              <h5 class="my-4">Mental Health Resources</h5>
+            </div>
+            <p>Access a wide range of resources to support your mental health journey, including articles, videos, and exercises.</p>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <span class="me-2"><i class="fas fa-circle text-primary" style="font-size: 0.5rem"></i></span>Educational Content
+              </li>
+              <li class="mb-2">
+                <span class="me-2"><i class="fas fa-circle text-primary" style="font-size: 0.5rem"></i></span>Self-help Tools
+              </li>
+              <li class="mb-2">
+                <span class="me-2"><i class="fas fa-circle text-primary" style="font-size: 0.5rem"></i></span>Community Support
+              </li>
+            </ul>
+            <div class="text-center my-5">
+              <div class="d-grid">
+                <button class="btn btn-outline-danger" type="submit">Learn more</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+{% endblock%}

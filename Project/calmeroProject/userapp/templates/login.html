@@ -1,0 +1,91 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+
+<section class="background-radial-gradient overflow-hidden">
+  <style>
+    .background-radial-gradient {
+      background-color: #0a3d62;
+      background-image: radial-gradient(650px circle at 0% 0%, #1e5799 15%, #2980b9 35%, #3498db 75%, #3c9ee5 80%, transparent 100%), radial-gradient(1250px circle at 100% 100%, #22a7f0 15%, #3498db 35%, #2c82c9 75%, #267fb5 80%, transparent 100%);
+      padding-top: 20px;
+    }
+
+    #radius-shape-2 {
+      border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+      bottom: -60px;
+      right: -110px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(#5fcf80, #5fcf80);
+      overflow: hidden;
+    }
+
+    .bg-glass {
+      background-color: hsla(0, 0%, 100%, 0.9) !important;
+      backdrop-filter: saturate(200%) blur(25px);
+    }
+
+    .form-label {
+      color: black;
+      font-weight: 400;
+    }
+  </style>
+<br><br>
+  <div class="container  text-center text-lg-start mb-2" style="padding-top:70px;">
+    <div class="row gx-lg-5 align-items-center">
+      <div class="col-lg-5 mb-lg-0">
+        <video class="mx-auto img-fluid" style="display: block; width: 600px; border-radius: 5px" autoplay loop muted playsinline>
+          <source src="{% static 'assets/img/v1.mp4' %}" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        {% comment %} <img src="{% static 'assets/img/cctv11.webp' %}" alt="" class="img-fluid" /> {% endcomment %}
+        <img src="{% static 'assets/img/img8.avif' %}" alt="" class="img-fluid" />
+      </div>
+
+      <div class="col-lg-7 mb-5 mb-lg-0 position-relative">
+        <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+        <div class="card bg-glass fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s" style="border-radius: 30px">
+          <div class="card-body px-4 py-5 px-md-5">
+            <div data-mdb-input-init class="form-outline mb-4">
+              <h4> Login </h4>
+            </div>
+            <form class="py-3" method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div data-mdb-input-init class="form-outline mb-4">
+                <label class="form-label" for="">Email address :</label>
+                <input type="email" id="" class="form-control" placeholder="Enter Email" name="email" />
+              </div>
+              <div data-mdb-input-init class="form-outline mb-4">
+                <label class="form-label" for="form3Example4">Password :</label>
+                <input type="password" id="form3Example4" class="form-control" name="password" placeholder="Enter Password" />
+              </div>
+              <div class="form-check d-flex justify-content-center mb-4">
+                <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
+                <label class="form-check-label" for="form2Example33"> Remember me </label>
+              </div>
+              <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4 col-6 mx-auto d-block"> Sign In </button>
+              <div class="text-center">
+                <p>Don't Have an Account ? <a href="{% url 'user_register' %}" class="text-dark">sign up</a> </p>
+                <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+                  <i class="fab fa-facebook-f text-danger"></i>
+                </button>
+
+                <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+                  <i class="fab fa-google text-danger"></i>
+                </button>
+
+                <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+                  <i class="fab fa-twitter text-danger"></i>
+                </button>
+
+                <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+                  <i class="fab fa-github text-danger"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

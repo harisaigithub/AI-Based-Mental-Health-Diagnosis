@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+<div class="d-flex pt-5 justify-content-center align-items-center" style="height: 100vh; background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);">
+    <div class="text-center" style="animation: fadeIn 2s ease-in-out;">
+        <h1 class="display-4 fw-bold text-dark mb-4" style="font-family: 'Arial', sans-serif; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);">
+           Dashboard Page Content Coming Soon
+        </h1>
+        <p class="lead text-secondary" style="font-style: italic; opacity: 0.9; transform: translateY(-10px); animation: slideUp 1s ease-in-out;">
+            We're working on it. Stay tuned for updates!
+        </p>
+        <video class="mx-auto img-fluid" style="display: block; width: 100px; border-radius: 5px" autoplay loop muted playsinline>
+          <source src="{% static 'assets/img/v2.mp4' %}" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div class="spinner-border text-primary mt-4" role="status" style="width: 3rem; height: 3rem;">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+</div>
+
+<style>
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideUp {
+        from {
+            transform: translateY(20px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+</style>
+
+{% endblock %}

@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<style>
+    .form-box {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 20px 50px;
+        border-radius: 20px;
+        box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(10px);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .form-box:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 15px 50px rgba(0, 0, 0, 0.3);
+    }
+    
+    .form-control {
+        border-radius: 25px;
+        padding: 15px;
+        padding-left: 20px;
+        transition: all 0.3s ease;
+        border: 1px solid #15b8d9;
+        margin-bottom: 10px;
+        color: #030303;
+    }
+    
+    .form-control:focus {
+        box-shadow: 0px 0px 15px #15b8d9(255, 255, 255, 0.6);
+    }
+    
+    .form-group {
+        position: relative;
+    }
+    
+    .form-group i {
+        position: absolute;
+        left: 10px;
+        top: 12px;
+        color: #aaa;
+        transition: all 0.3s ease;
+    }
+    
+    .form-group i:hover {
+        transform: rotate(360deg);
+    }
+    
+    .btn-pill {
+        border-radius: 25px;
+        padding: 15px 40px;
+        background: linear-gradient(135deg, #ff416c, #ff4b2b);
+        border: none;
+        color: #fff;
+        font-weight: bold;
+        transition: background 0.3s ease, transform 0.3s ease;
+    }
+    
+    .btn-pill:hover {
+        background: linear-gradient(135deg, #ff4b2b, #ff416c);
+        transform: scale(1.1);
+        color: #15b8d9;
+        
+    }
+    
+    /* Styling for links and text */
+    .form-box a {
+        color: #030303;
+        transition: all 0.3s ease;
+    }
+    
+    .form-box a:hover {
+        color: #ff4b2b;
+        text-decoration: none;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 576px) {
+        .form-box {
+            padding: 30px;
+        }
+    }
+</style>
+
+<div class="container pt-5">
+    <div class="row mt-4">
+        <div class="col-md-10  mx-auto ">
+            <form action="" method="POST" class="form-box my-5" enctype="multipart/form-data">
+                {% csrf_token %}
+                <h3 class="text-black mb-4 fw-bolder text-center">Create an Account</h3>
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <label for="full_name" class="m-1 text-dark">User Name:</label>
+                        <input type="text" class="form-control" name="full_name" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="email" class="m-1 text-dark">Email:</label>
+                        <input type="text" class="form-control" name="email" required>
+                    </div>
+                </div>
+                <!-- Password and Phone -->
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <label for="password" class="m-1 text-dark">Password:</label>
+                        <input type="password" class="form-control" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}" title="Password must be at least 8 characters long, include one uppercase letter, one lowercase letter, one digit, and one special character (@$!%*?&)." required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="phone_number" class="m-1 text-dark">Phone Number:</label>
+                        <input type="text" class="form-control" name="phone_number" pattern="[6-9]\d{9}" title="Phone number must be 10 digits long, starting with a digit between 6 and 9." required>
+                    </div>
+                </div>
+                <!-- Address and Profile Pic -->
+                <div class="form-group row">
+                    <div class="form-group col-md-6">
+                        <label for="phone_number" class="m-1 text-dark">AGE:</label>
+                        <input type="number" class="form-control" name="age" max=100>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <label for="photo" class="m-1 text-dark">Upload Profile :</label>
+                        <input type="file" class="form-control" name="photo" required>
+                    </div>
+                </div>
+                <div class="">
+                    <label for="address" class="m-1 text-dark">Address:</label>
+                    <input type="text" class="form-control" name="address">
+                </div>                   
+                
+                <div class="text-center mt-2 pt-2">
+                    <button class="btn btn-pill col-md-7" type="submit">Register</button>
+                </div>
+                <p class="small py-3 text-dark text-center">Already have an account? <a href="{% url 'login' %}" class="text-black">Login</a></p>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
