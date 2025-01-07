@@ -147,8 +147,8 @@ If you find the design helpful or inspiring, please **like** and **leave a comme
 ## **System Architecture**  
 ![System Architecture](./assets/system_architecture.png)  
 - **Components**:  
-  - Frontend: django  
-  - Backend: Flask/Express.js  
+  - Frontend: django Template 
+  - Backend: Django  
   - Database: SQLlite3
   - Deployment: Heroku / EC2 
 
