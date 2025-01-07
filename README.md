@@ -102,30 +102,34 @@ If you find the design helpful or inspiring, please **like** and **leave a comme
 
 ---
 
-## **Technologies Used**  
 
-### **Frontend**  
-- **React.js**  
-- **Material-UI / Tailwind CSS**  
+## **Technologies Used**
 
-### **Backend**  
-- **Node.js**  
-- **Express.js**  
+### **Frontend**
+- **Django Templates**: Used for dynamic HTML rendering.
+- **Bootstrap**: For responsive UI design.
 
-### **Machine Learning**  
-- **TensorFlow/Keras**  
-- **Hugging Face Transformers (BERT)**  
-- **Scikit-learn**  
-- **Pandas / NumPy**  
+### **Backend**
+- **Django**: Python-based backend framework.
+- **Django REST Framework (DRF)**: For API development.
+- **MySQL**: Primary database for production.
+- **SQLite**: Used for local development.
 
-### **Cloud Deployment**  
-- **AWS EC2**  
-- **db.sqlite3 Atlas**  
-- **Docker**  
+### **Machine Learning**
+- **TensorFlow/Keras**: For model training and deployment.
+- **Hugging Face Transformers (BERT)**: For NLP-based sentiment analysis.
+- **Scikit-learn**: For predictive modeling and evaluation.
+- **Pandas/NumPy**: For data manipulation and analysis.
 
-### **Others**  
-- **Axios** for API requests.  
-- **Figma** for UI/UX design.  
+### **Cloud Deployment**
+- **AWS EC2**: For hosting the application.
+- **Heroku**: For staging and deployment.
+- **Docker**: For containerizing the application.
+
+### **Other Tools**
+- **Gunicorn**: For managing the application server.
+- **Whitenoise**: For static file management in Django.
+- **Figma**: For UI/UX design and prototyping.
 
 ---
 
