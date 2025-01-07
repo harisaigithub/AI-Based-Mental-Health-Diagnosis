@@ -1,21 +1,36 @@
-
-## FINAL YEAR PROJECT #CALMORA
-
-
-# **AI-Powered Mental Health Diagnosis System**
+# **Calmora - AI-Powered Mental Health Diagnosis System**
 
 ---
 
-## **Topic**
-An innovative and accurate AI-based system to assist in mental health diagnosis using Machine Learning and Natural Language Processing (NLP).
+## **Tagline**  
+*Empowering mental health through AI-driven insights and personalized care.*
 
 ---
 
-## **About**
-The **AI-Powered Mental Health Diagnosis System** is designed to bridge the gap in mental health services by providing a user-friendly, secure, and real-time platform. It offers quick self-assessments, personalized recommendations, and real-time mood tracking to empower individuals to manage their mental health effectively. Built with cutting-edge AI algorithms and hosted on the cloud, this system ensures data privacy and accessibility for a global audience.
+## **Table of Contents**  
+1. [Introduction](#introduction) 
+2. [Figma Design](#figma)
+3. [Features](#features)  
+4. [Technologies Used](#technologies-used)  
+5. [Dataset](#dataset)  
+6. [System Architecture](#system-architecture)  
+7. [Model Workflow](#model-workflow)  
+8. [Implementation Details](#implementation-details)  
+9. [Results](#results)  
+10. [Installation](#installation)  
+11. [Usage](#usage)  
+12. [Future Enhancements](#future-enhancements)  
+13. [Contributing](#contributing)  
+14. [License](#license)  
 
 ---
 
+## **Introduction**  
+The **AI-Powered Mental Health Diagnosis System** is designed to bridge the gap in mental health services by offering an intelligent platform for mental health assessment, mood tracking, and personalized recommendations. This system leverages advanced Machine Learning and NLP to empower users in taking proactive steps toward better mental health.
+
+![Introduction Diagram](./assets/introduction_diagram.png)
+
+---
 ## **Objectives**
 - Develop an AI-powered system for accurate and early mental health diagnosis.
 - Integrate machine learning and NLP for real-time mood monitoring and sentiment analysis.
@@ -34,75 +49,135 @@ The system’s features include an interactive chatbot, self-assessment tools, p
 
 ---
 
-## **Libraries and Frameworks**
-- **Frontend**:
-  - React.js
-  - Material-UI / Tailwind CSS
-- **Backend**:
-  - Node.js
-  - Express.js
-- **Machine Learning**:
-  - TensorFlow/Keras
-  - Hugging Face Transformers (BERT)
-  - Scikit-learn
-  - Pandas / NumPy
-- **Cloud Deployment**:
-  - AWS EC2 / AWS SageMaker / MongoDB Atlas
-  - Docker (for containerization)
-- **Other**:
-  - Axios (API requests)
-  - Flask/FastAPI (Model APIs)
+## **Figma Design**
+The user interface of this project was designed using Figma. You can view the complete design by clicking the link below:
+
+[View the complete Figma design here](https://www.figma.com/community/file/1451309568741892229/calmora-ai-powered-mental-health-diagnosis-system)
+
+If you find the design helpful or inspiring, please **like** and **leave a comment** on the Figma page. This helps me know that my design is appreciated and motivates me to create more amazing projects!
 
 ---
 
-## **Data Source**
-- Publicly available mental health datasets for training AI models.
-- User-provided input through self-assessments and chatbot interactions.
-- Real-time data from wearables (future integration).
+## **Features**  
+
+### **Before Login Features**  
+1. **Landing Page**  
+   - Interactive UI with a “Find Out More” button redirecting to the Services page.  
+   - Demo Button opens the AI Chatbot for user interaction.  
+   - Navigation bar functional across all pre-login pages.  
+
+2. **AI Chatbot**  
+   - Engages users by asking relevant questions and providing insights.  
+   - Prompts users to sign up/login for personalized services.  
+
+### **After Login Features**  
+1. **Dashboard**  
+   - Personalized mental health overview.  
+   - Mood trends, stress analysis, and alerts.
+
+2. **Mood Assessments**  
+   - AI-based real-time mood tracking.  
+   - Sentiment analysis for emotional insights.  
+
+3. **Progress Reports**  
+   - Tracks mental health trends and highlights AI predictions.  
+
+4. **Recommendations**  
+   - Personalized tips for stress relief, mindfulness, and better sleep.  
+
+5. **Relaxation Tools**  
+   - Music therapy and guided meditation sessions.  
+
+6. **Mood Diary**  
+   - Logs user inputs and generates mood-based recommendations.  
+
+7. **Guided Workout Exercises**  
+   - Tailored yoga and breathing exercises for stress relief.  
+
+8. **Contact and Subscribe**  
+   - Sends notifications and reminders for self-assessments.  
+
+9. **Settings and Profile**  
+   - Edit profile, manage subscriptions, and sync wearable data.  
 
 ---
 
-## **License**
-This project is licensed under the **MIT License**. See the `LICENSE` file for details.
+## **Technologies Used**  
+
+### **Frontend**  
+- **React.js**  
+- **Material-UI / Tailwind CSS**  
+
+### **Backend**  
+- **Node.js**  
+- **Express.js**  
+
+### **Machine Learning**  
+- **TensorFlow/Keras**  
+- **Hugging Face Transformers (BERT)**  
+- **Scikit-learn**  
+- **Pandas / NumPy**  
+
+### **Cloud Deployment**  
+- **AWS EC2**  
+- **db.sqlite3 Atlas**  
+- **Docker**  
+
+### **Others**  
+- **Axios** for API requests.  
+- **Figma** for UI/UX design.  
 
 ---
 
-## **Dependencies**
-1. **Node.js** (v16+)
-2. **React.js** (v18+)
-3. **Python** (v3.8+)
-4. **MongoDB Atlas** (Database)
-5. **AWS SDK** (for cloud integration)
-6. **TensorFlow/Keras** (v2.9+)
-7. **Hugging Face Transformers** (v4.21+)
-8. **Docker** (v20+ for containerization)
+## **Dataset**  
+- **Sources**: Publicly available mental health datasets and user-provided inputs.  
+- **Features**:  
+  - **Input**: Mood, stress levels, heart rate, sleep patterns.  
+  - **Output**: AI-based recommendations and insights.  
+- **Visualization**:  
 
-Install all dependencies using the following commands:
-```bash
-npm install
-pip install -r requirements.txt
-```
+![Dataset Diagram](./assets/dataset_structure.png)
 
 ---
 
-## **Color Palette**
-| **Color**       | **Usage**                 | **Hex Code**     |
-|------------------|---------------------------|------------------|
-| Primary Blue     | Buttons, Highlights       | `#1A73E8`        |
-| Soft Green       | Background Highlights     | `#34A853`        |
-| Calm Gray        | Form Backgrounds          | `#F1F3F4`        |
-| Coral            | Call-to-Action Elements   | `#FF7F50`        |
-| Teal             | Success Notifications     | `#008080`        |
-| Black (Subsidiary)| Text and Subtle Elements  | `#000000`        |
-| White            | Text and Icons            | `#FFFFFF`        |
-| Alert Red        | Error Notifications       | `#EA4335`        |
+## **System Architecture**  
+![System Architecture](./assets/system_architecture.png)  
+- **Components**:  
+  - Frontend: django  
+  - Backend: Flask/Express.js  
+  - Database: SQLlite3
+  - Deployment: Heroku / EC2 
 
 ---
 
-## **Latest Version of README**
-This is the **v1.0** release of the README. Updates will follow as new features are added.
+## **Model Workflow**  
+![Model Workflow](./assets/model_workflow.png)  
+- **Steps**:  
+  1. Data Preprocessing (missing values, normalization).  
+  2. Sentiment Analysis (NLP-based models).  
+  3. AI Recommendation Model.  
+  4. Result Delivery and User Feedback.  
 
 ---
+
+## **Implementation Details**  
+- **Preprocessing**:  
+  - Cleaning, normalizing, and handling user inputs.  
+- **Model Training**:  
+  - Sentiment Analysis using Naive Bayes and Hugging Face Transformers.  
+  - Decision Trees for recommendation logic.  
+- **Deployment**:  
+  - Hosted on Heroku with backend APIs.  
+
+---
+
+## **Results**  
+- **Metrics**:  
+  - Accuracy: 92%  
+  - Precision: 89%  
+  - Recall: 90%  
+
+![Results Graph](./assets/results_graph.png)
 
 ## **Screenshots**
 ### Home Page
@@ -118,46 +193,111 @@ This is the **v1.0** release of the README. Updates will follow as new features 
 *(Include screenshot here)*
 
 ---
-## **Figma Design**
-The user interface of this project was designed using Figma. You can view the complete design by clicking the link below:
-
-[View the complete Figma design here](https://www.figma.com/community/file/1451309568741892229/calmora-ai-powered-mental-health-diagnosis-system)
-
-If you find the design helpful or inspiring, please **like** and **leave a comment** on the Figma page. This helps me know that my design is appreciated and motivates me to create more amazing projects!
-
---- 
-
 ## **Hosting Link**
 *(Insert hosting link here)*
+---
+
+Here’s the updated **Installation** section for a Python Django project:
 
 ---
 
-## **How to Run Locally**
-1. Clone the repository:
+## **Installation**  
+
+### Prerequisites  
+1. **Python** (v3.8 or higher)  
+2. **pip** (Python package manager)  
+3. **Django** (v4.0 or higher)  
+4. **Virtual Environment** (recommended)  
+5. **Database**: MySQL or SQLite (pre-configured in the project)  
+
+### Steps  
+
+1. **Clone the Repository**  
    ```bash
-   git clone https://github.com/username/repository.git
-   cd repository
+   git clone https://github.com/username/calmora.git  
+   cd calmora  
    ```
-2. Install dependencies:
+
+2. **Create and Activate a Virtual Environment**  
+   - Create the virtual environment:  
+     ```bash
+     python -m venv venv
+     ```  
+   - Activate the virtual environment:  
+     - On Windows:  
+       ```bash
+       venv\Scripts\activate
+       ```  
+     - On macOS/Linux:  
+       ```bash
+       source venv/bin/activate
+       ```
+
+3. **Install Dependencies**  
    ```bash
-   npm install
    pip install -r requirements.txt
    ```
-3. Start the development server:
+
+4. **Set Up the Database**  
+   - Open the `settings.py` file in the `calmora` directory and configure the database settings (e.g., MySQL credentials).  
+   - If you’re using SQLite, it is already pre-configured.
+
+5. **Apply Migrations**  
    ```bash
-   npm start
-   python app.py
+   python manage.py makemigrations
+   python manage.py migrate
    ```
-4. Visit the application on:
-   - Frontend: `http://localhost:3000`
-   - Backend: `http://localhost:5000`
+
+6. **Create a Superuser** (Admin Account)  
+   ```bash
+   python manage.py createsuperuser
+   ```
+
+7. **Run the Development Server**  
+   ```bash
+   python manage.py runserver
+   ```
+
+8. **Access the Application**  
+   - Open your browser and go to:  
+     - Localhost: `http://127.0.0.1:8000`  
 
 ---
 
-## **Contact**
-For queries, reach out to the project team at:
-- **Sanala Bala Sree Varsha (TL):** @example.com
-- **Parasa Hari Sai (TM1):** harisaiparasa@gmail.com
-- **Sathiri Vyshnavi (TM2):** 
-- **Karumuru Jahnavi (TM3):**
-```
+## **Usage**  
+- **Steps**:  
+  1. Open the application and sign up/login.  
+  2. Navigate through the dashboard to access features.  
+  3. Use the AI chatbot for recommendations.  
+  4. Log moods in the Mood Diary for insights.  
+
+![Usage UI](./assets/ui_wireframe.png)
+
+---
+
+## **Future Enhancements**  
+- **Advanced Machine Learning Models** for mood predictions.  
+- **Integration** with wearable devices for real-time data.  
+- Enhanced UI/UX designs.  
+
+---
+
+## **Contributing**  
+1. Fork this repository.  
+2. Create a new branch for your feature/bug fix.  
+3. Submit a pull request.  
+
+---
+
+## **License**  
+This project is licensed under the **MIT License**. See the `LICENSE` file for details.  
+
+---
+
+## **Contact**  
+- **Sanala Bala Sree Varsha (Team Lead)**:  
+- **Parasa Hari Sai (Team Member 1)**: [harisaiparasa@gmail.com]  
+- **Sathiri Vyshnavi (Team Member 2)**:  
+- **Karumuru Jahnavi (Team Member 3)**:  
+
+--- 
