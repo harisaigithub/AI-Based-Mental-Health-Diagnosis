@@ -9,7 +9,7 @@
 
 ## **Table of Contents**  
 1. [Introduction](#introduction) 
-2. [Figma Design](#figma)
+2. [Figma Design](#figma-design)
 3. [Features](#features)  
 4. [Technologies Used](#technologies-used)  
 5. [Dataset](#dataset)  
