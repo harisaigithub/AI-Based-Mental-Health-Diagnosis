@@ -1,0 +1,173 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+  .container {
+    font-family: "Arial", Helvetica, sans-serif;
+  }
+
+  .mood-image {
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    height: 300px;
+  }
+
+  .chat-window {
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 60vh;
+  }
+
+  .chat-header {
+    background-color: #0c5401;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+    padding: 15px;
+  }
+
+  .chat-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    background-color: #e9ecef;
+    border-top: 1px solid #dee2e6;
+  }
+
+  .chat-footer {
+    background-color: #f1f1f1;
+    padding: 15px;
+    border-top: 1px solid #dee2e6;
+    display: flex;
+    gap: 10px;
+  }
+
+  .chat-input {
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ced4da;
+    flex: 1;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .chat-input:focus {
+    border-color: #0f1113;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+
+  .chat-send-button {
+    border-radius: 20px;
+    background-color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+
+  .chat-send-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+
+  .message-container {
+    display: flex;
+    margin-bottom: 15px;
+  }
+
+  .message-container.user {
+    justify-content: flex-end;
+  }
+
+  .message-container.bot {
+    justify-content: flex-start;
+  }
+
+  .chat-bubble {
+    max-width: 70%;
+    padding: 15px;
+    border-radius: 20px;
+    background-color: #0d1117;
+    color: white;
+    text-align: left;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .message-container.user .chat-bubble {
+    background-color: #6c757d;
+  }
+
+  .chat-content::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .chat-content::-webkit-scrollbar-thumb {
+    background-color: #007bff;
+    border-radius: 10px;
+  }
+</style>
+
+<div class="container mt-2">
+  <div class="row align-items-center justify-content-center">
+    <h4 class="text-center text-primary p-3 bg-light rounded shadow-sm capfirst">
+      {{ mood }} <small class="text" style="font-size: 0.8rem; color: #0f1113;">(Refresh for new text examples)</small>
+    </h4>
+    
+    <div class="col-md-6 mx-auto mt-4">
+      <div class="card chat-window">
+        <div class="card-header chat-header">Mental Illness Detection Chatbot</div>
+        <div class="card-body chat-content" id="chat-content">
+          <div class="message-container bot mt-2">
+            <span class="chat-bubble">Hi, Tell me about how you're feeling today?</span>
+          </div>
+        </div>
+        <form id="chat-form" method="post" action="{% url 'predictresult' %}">
+          {% csrf_token %}
+          <div class="card-footer chat-footer">
+            <input type="text" class="form-control chat-input" id="message-input" placeholder="Type a message" name="mood_pred" readonly required value="{{ message }}" />
+            <button class="btn btn-primary chat-send-button" id="send-button" type="submit">Send</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function () {
+    $("#chat-form").submit(function (event) {
+      event.preventDefault();
+      var userInput = $("#message-input").val().trim();
+      if (!userInput) return;
+      
+      $("#chat-content").append(`<div class='message-container user'><span class='chat-bubble'>${userInput}</span></div>`);
+      var formData = $(this).serialize();
+      $("#message-input").val("");
+      $("#chat-content").scrollTop($("#chat-content")[0].scrollHeight);
+      
+      $.ajax({
+        type: "POST",
+        url: $(this).attr("action"),
+        data: formData,
+        dataType: "json",
+        success: function (response) {
+          var botText = response.final_result;
+          var bgClass = botText === "Mental Health Detected" ? "bg-danger" : "bg-warning";
+          $("#chat-content").append(`<div class='message-container bot'><span class='chat-bubble ${bgClass}'>${botText}</span></div>`);
+          $("#chat-content").scrollTop($("#chat-content")[0].scrollHeight);
+        },
+        error: function () {
+          console.log("Error in processing request");
+        }
+      });
+    });
+  });
+</script>
+
+{% endblock %}

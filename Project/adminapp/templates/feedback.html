@@ -1,0 +1,126 @@
+{% extends 'base2.html' %} {% load static %} {% block content %}
+
+<style>
+    .main-container {
+        font-family: 'Arial', Helvetica, sans-serif;
+        color: #343a40;
+    }
+    
+    .card {
+        background-color: #f8f9fa;
+        border: none;
+        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .card-title {
+        margin-bottom: 10px;
+    }
+    
+    .card-body {
+        padding: 40px;
+    }
+    
+    .rating {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    
+    .rating > input {
+        display: none;
+    }
+    
+    .rating > label {
+        position: relative;
+        width: 1em;
+        font-size: 40px;
+        color: #FFD600;
+        cursor: pointer;
+        transition: color 0.2s ease;
+    }
+    
+    .rating > label::before {
+        content: "\2605";
+        position: absolute;
+        opacity: 0;
+    }
+    
+    .rating > label:hover:before,
+    .rating > label:hover ~ label:before {
+        opacity: 1 !important;
+    }
+    
+    .rating > input:checked ~ label:before {
+        opacity: 1;
+    }
+    
+    .rating:hover > input:checked ~ label:before {
+        opacity: 0.4;
+    }
+    
+    .rating > input:checked ~ label {
+        color: #FFD700;
+    }
+    
+    textarea {
+        font-size: 1rem;
+        color: #495057;
+        background-color: #f8f9fa;
+        border: 1px solid #ced4da;
+        border-radius: 10px;
+        padding: 15px;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    textarea:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+    
+    .btn-primary {
+        background: linear-gradient(135deg, #007bff, #6610f2);
+        border: none;
+        transition: background 0.3s ease, transform 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+        background: linear-gradient(135deg, #0056b3, #450d8c);
+        transform: scale(1.05);
+    }
+    
+    .shadow-lg {
+        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+
+
+<div class="text-center main-container mb-5" >
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="card col-8 d-flex m-auto text-center  shadow-lg" style=" height: auto; border-radius: 20px; overflow: hidden;">
+            <div class="card-header" style="background: linear-gradient(135deg, #fff7e6, #fff7e6); color: white; padding: 30px;">
+                <h1 class="card-title" style="font-family: 'Arial', Helvetica, sans-serif; font-weight: bold;">We'd love some Feedback</h1>
+                <p class="text-dark">Your feedback is important to us! 😊</p>
+            </div>
+            <div class="card-body" style="padding: 40px;">
+                <div>
+                    <p style="font-size: 1.2rem; color: #495057; margin-bottom: 15px;">How relaxed were you with your session?</p>
+                    <div class="rating">
+                        <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
+                        <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+                        <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+                        <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+                        <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+                    </div>
+                </div>
+                <label class="d-flex text-start mt-4" style="font-weight: bold; color: #495057; font-size: 1.1rem;">Comments:</label>
+                <textarea name='review' class="form-control mb-4" rows="3" placeholder="Type Your Comments..." style="border-radius: 10px; border: 1px solid #ced4da; padding: 15px; font-size: 1rem;"></textarea>
+                <input type="submit" onclick='myFunction()' id='sub-btn' value="Submit" class='btn btn-primary btn-lg' style="background: linear-gradient(135deg, #007bff, #6610f2); border: none; padding: 12px 30px; font-size: 1.1rem; border-radius: 30px; transition: all 0.3s ease;"/>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

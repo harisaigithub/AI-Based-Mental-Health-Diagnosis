@@ -1,0 +1,253 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Calmero</title>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png" />
+  <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/favicon.ico" />
+  <link rel="manifest" href="assets/img/favicons/manifest.json" />
+  <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png" />
+  <meta name="theme-color" content="#ffffff" />
+
+  <link href="{% static 'assets/css/theme.css' %}" rel="stylesheet" />
+
+  <style>
+    /* Navbar Styles */
+    .custom-navbar {
+      border: 3px solid #000;
+      /* Solid black border */
+      border-radius: 10px;
+      /* Rounded corners */
+      margin: 30px;
+      /* Gaps on all four sides */
+      padding: 20px;
+      /* Internal spacing */
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      /* Subtle shadow for 3D effect */
+      background-color: #fff;
+      /* Background color for the box */
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      /* Smooth transition */
+    }
+
+    /* Hover Effect for 3D Illusion */
+    .custom-navbar:hover {
+      box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.2);
+      /* Deeper shadow on hover */
+      transform: translateY(-5px);
+      /* Slight upward movement */
+    }
+
+    /* Hover Effects for Navigation Links */
+    .navbar-nav .nav-link {
+      color: #000;
+      /* Default link color */
+      transition: color 0.3s, transform 0.3s;
+      /* Smooth transition */
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #ff6f61;
+      /* Hover color (e.g., coral) */
+      transform: scale(1.1);
+      /* Slight zoom effect */
+      text-decoration: underline;
+      /* Optional: underline effect */
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .custom-navbar {
+        margin: 10px;
+        padding: 8px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .custom-navbar {
+        margin: 5px;
+        padding: 5px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="main" id="top">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 d-block custom-navbar"
+      data-navbar-on-scroll="data-navbar-on-scroll">
+
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'index' %}">
+          <div class="logo-container">
+            <img src="{% static 'assets/img/logor.png' %}" height="45" alt="logo" class="logo-main" />
+            <img src="{% static 'assets/img/logo-name.png' %}" height="45" alt="secondary logo"
+              class="logo-secondary" />
+          </div>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"> </span>
+        </button>
+        <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
+            <li class="nav-item px-2">
+              <a class="nav-link" aria-current="page" href="{% url 'index' %}">Home</a>
+            </li>
+            <li class="nav-item px-2">
+              <a class="nav-link" href="{% url 'our_services' %}">Our Services</a>
+            </li>
+            <li class="nav-item px-2">
+              <a class="nav-link" href="{% url 'about' %}">About Us</a>
+            </li>
+            <li class="nav-item px-2">
+              <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+            </li>
+            <li class="nav-item px-2">
+              <a class="nav-link" href="{% url 'login' %}">Login</a>
+            </li>
+            <li class="nav-item px-2"> {% comment %} <a class="nav-link" href="{% url 'login' %}">Login</a> {%
+              endcomment %} </li>
+          </ul>
+
+          {% comment %} <a class="btn btn-primary order-1 order-lg-0 ms-lg-3"
+            href="{% url 'user_register' %}">Signup</a> {% endcomment %}
+        </div>
+      </div>
+    </nav>
+    {% block content %}{% endblock %}
+    {% if not request.resolver_match.url_name == 'index' %}
+    <section class="bg-1000">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <h2 class="fw-bold text-white">Get an update every week</h2>
+            <p class="text-300">We ensure your mental health<br />at your finger tips.</p>
+          </div>
+          <div class="col-lg-6">
+            <h5 class="text-primary mb-3">SUBSCRIBE TO NEWSLETTER </h5>
+            <form class="row gx-2 gy-2 align-items-center">
+              <div class="col">
+                <div class="input-group-icon">
+                  <label class="visually-hidden" for="inputEmailCta">Address</label>
+                  <input class="form-control input-box form-quriar-control text-light" id="inputEmailCta" type="email"
+                    placeholder="Enter your mail" />
+                </div>
+              </div>
+              <div class="d-grid gap-3 col-sm-auto">
+                <button class="btn btn-danger" type="submit">Subscribe</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-900 pb-0 pt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-6 col-sm-12 col-lg-4 mb-4 order-0 order-sm-0">
+            <a class="text-decoration-none" href="#"><img src="assets/img/gallery/footer-logo.png" height="51"
+                alt="" /></a>
+            <p class="text-500 my-4">The most trusted Mental Health Diagnosis<br />at your finger tips.</p>
+          </div>
+          <div class="col-6 col-sm-4 col-lg-2 mb-3 order-2 order-sm-1">
+            <h5 class="lh-lg fw-bold mb-4 text-light font-sans-serif">Other links </h5>
+            <ul class="list-unstyled mb-md-4 mb-lg-0">
+              <li class="lh-lg"><a class="text-500" href="#!">Login</a></li>
+              <li class="lh-lg"><a class="text-500" href="#!">Register</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-sm-4 col-lg-4 mb-3 order-3 order-sm-2">
+            <h5 class="lh-lg fw-bold text-light mb-4 font-sans-serif">Services</h5>
+            <ul class="list-unstyled mb-md-4 mb-lg-0">
+              <li class="lh-lg"><a class="text-500" href="#!">Mental Health Assessment</a></li>
+              <li class="lh-lg"><a class="text-500" href="#!">Personalized Therapy Plans</a></li>
+              <li class="lh-lg"><a class="text-500" href="#!">24/7 Mental Health Support</a></li>
+            </ul>
+          </div>
+
+          <div class="col-6 col-sm-4 col-lg-2 mb-3 order-3 order-sm-2">
+            <h5 class="lh-lg fw-bold text-light mb-4 font-sans-serif"> Customer Care</h5>
+            <ul class="list-unstyled mb-md-4 mb-lg-0">
+              <li class="lh-lg"><a class="text-500" href="#!">About Us</a></li>
+              <li class="lh-lg"><a class="text-500" href="#!">Contact US</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-0 bg-1000">
+      <div class="container">
+        <div class="row justify-content-md-between justify-content-evenly py-4">
+          <div class="col-12 col-sm-8 col-md-6 col-lg-auto text-center text-md-start">
+            <p class="fs--1 my-2 fw-bold text-200">All rights Reserved &copy; VVIT, 2025</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    {% endif %}
+  </main>
+
+  <script src="{% static 'vendors/@popperjs/popper.min.js' %}"></script>
+  <script src="{% static 'vendors/bootstrap/bootstrap.min.js' %}"></script>
+  <script src="{% static 'vendors/is/is.min.js' %}"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+  <script src="{% static 'vendors/fontawesome/all.min.js' %}"></script>
+  <script src="{% static 'assets/js/theme.js' %}"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500;600;700;800&amp;display=swap"
+    rel="stylesheet" />
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+{% if messages %} {% for message in messages %} {% if message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+<script>
+  swal({
+    title: "Warning!",
+    text: "{{ message }}",
+    icon: "warning",
+    button: "OK",
+  });
+</script>
+{% elif message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+<script>
+  swal({
+    title: "Info :)",
+    text: "{{ message }}",
+    icon: "info",
+    button: "OK",
+  });
+</script>
+{% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+<script>
+  swal({
+    title: "Error!",
+    text: "{{ message }}",
+    icon: "error",
+    button: "OK",
+  });
+</script>
+{% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+<script>
+  swal({
+    title: "Success!",
+    text: "{{ message }}",
+    icon: "success",
+    button: "OK",
+  });
+</script>
+{% endif %} {% endfor %} {% endif %}
+
+</html>

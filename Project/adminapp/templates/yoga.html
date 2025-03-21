@@ -1,0 +1,241 @@
+{% extends 'base2.html' %} {% load static %} {% block content %}
+<style>
+    .border-3 {
+        border-width: 3px !important;
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+
+    .button-container input[type="radio"] {
+        display: none;
+    }
+
+    .button-container label {
+        display: inline-flex;
+        align-items: center;
+        margin: 0 5px;
+        padding: 10px 20px;
+        border: 2px solid transparent;
+        border-radius: 50px;
+        /* Rounded pill shape */
+        cursor: pointer;
+        transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+        background-color: #2ea1dc;
+        /* Button Color */
+        font-weight: bold;
+        color: white;
+        text-align: center;
+    }
+
+    .button-container label:hover {
+        background-color: #1a7bb9;
+    }
+
+    .button-container input[type="radio"]:checked+label {
+        background-color: white;
+        border-color: #2ea1dc;
+        color: #2ea1dc;
+    }
+
+    .button-container input[type="radio"]:checked+label::before {
+        content: "";
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        background-color: #2ea1dc;
+        border-radius: 50%;
+        margin-right: 8px;
+    }
+
+
+
+    .form-column {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+</style>
+
+<style>
+    .search-container {
+        position: relative;
+        max-width: 300px;
+        margin: 20px auto;
+    }
+
+    .search-icon {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .card {
+        margin-bottom: 20px;
+    }
+
+    .card-img-top {
+        height: 200px;
+        object-fit: cover;
+    }
+</style>
+
+<div class="container">
+    <h1 class="text-center mt-4">Yoga Posture Detection</h1>
+    <div class="search-container">
+        <input type="text" id="searchInput" class="form-control" placeholder="Search yoga postures...">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-search search-icon" viewBox="0 0 16 16">
+            <path
+                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+        </svg>
+    </div>
+    <div id="yogaCards" class="row"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const yogaPoses = [
+        {
+            title: "Mountain Pose (Tadasana)",
+            details: "A foundational standing pose that improves posture and balance.",
+            image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8eW9nYSUyMHBvc2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+            youtubeLink: "https://www.youtube.com/watch?v=2HTvZp5rPrg"
+        },
+        {
+            title: "Downward Facing Dog (Adho Mukha Svanasana)",
+            details: "An inversion pose that stretches and strengthens the entire body.",
+            image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8eW9nYSUyMHBvc2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+            youtubeLink: "https://www.youtube.com/watch?v=j97SSGsnCAQ"
+        },
+        {
+            title: "Warrior I (Virabhadrasana I)",
+            details: "A standing pose that builds strength and improves focus.",
+            image: "https://images.unsplash.com/photo-1510894347713-fc3ed6fdf539?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8eW9nYSUyMHBvc2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+            youtubeLink: "https://www.youtube.com/watch?v=k4qaVoAbeHM"
+        },
+        {
+            title: "Tree Pose (Vrksasana)",
+            details: "A balancing pose that improves focus and strengthens the legs and core.",
+            image: "https://images.unsplash.com/photo-1552286450-4a669f880062?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8eW9nYSUyMHBvc2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+            youtubeLink: "https://www.youtube.com/watch?v=wdln9qWYloU"
+        },
+        {
+            title: "Child's Pose (Balasana)",
+            details: "A resting pose that gently stretches the back and hips.",
+            image: "https://images.unsplash.com/photo-1600881333168-2ef49b341f30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8eW9nYSUyMHBvc2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+            youtubeLink: "https://www.youtube.com/watch?v=2MJGg-dUKh0"
+        },
+        {
+            title: "Cobra Pose (Bhujangasana)",
+            details: "A backbend that strengthens the spine and opens the chest.",
+            image: "https://images.unsplash.com/photo-1599447421416-3414985c3521?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHlvZ2ElMjBwb3NlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+            youtubeLink: "https://www.youtube.com/watch?v=fOdrW7nf9gw"
+        },
+        {
+            title: "Corpse Pose (Savasana)",
+            details: "A relaxation pose that calms the mind and body.",
+            image: "https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHlvZ2ElMjBwb3NlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+            youtubeLink: "https://www.youtube.com/watch?v=1VYlOKUdylM"
+        },
+        {
+            title: "Warrior II (Virabhadrasana II)",
+            details: "A standing pose that strengthens the legs and improves balance.",
+            image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHlvZ2ElMjBwb3NlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+            youtubeLink: "https://www.youtube.com/watch?v=4Ejz7IgODlU"
+        },
+        {
+            title: "Triangle Pose (Trikonasana)",
+            details: "A standing pose that stretches the legs and spine.",
+            image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHlvZ2ElMjBwb3NlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+            youtubeLink: "https://www.youtube.com/watch?v=upFYlxZHif0"
+        },
+        {
+            title: "Bridge Pose (Setu Bandha Sarvangasana)",
+            details: "A backbend that strengthens the back and opens the chest.",
+            image: "https://images.unsplash.com/photo-1599447421416-3414985c3521?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fHlvZ2ElMjBwb3NlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+            youtubeLink: "https://www.youtube.com/watch?v=NnbvPeAIhmA"
+        },
+        {
+            title: "Seated Forward Bend (Paschimottanasana)",
+            details: "A seated pose that stretches the hamstrings and back.",
+            image: "https://images.unsplash.com/photo-1552286450-4a669f880062?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fHlvZ2ElMjBwb3NlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+            youtubeLink: "https://www.youtube.com/watch?v=T8sgVyF4Ux0"
+        },
+        {
+            title: "Half Moon Pose (Ardha Chandrasana)",
+            details: "A balancing pose that improves coordination and strengthens the legs.",
+            image: "https://images.unsplash.com/photo-1510894347713-fc3ed6fdf539?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fHlvZ2ElMjBwb3NlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+            youtubeLink: "https://www.youtube.com/watch?v=fAYLASzV3RE"
+        },
+        {
+            title: "Plank Pose",
+            details: "A core-strengthening pose that improves overall body stability.",
+            image: "https://images.unsplash.com/photo-1600881333168-2ef49b341f30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjR8fHlvZ2ElMjBwb3NlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+            youtubeLink: "https://www.youtube.com/watch?v=pvIjsG5Svck"
+        },
+        {
+            title: "Chair Pose (Utkatasana)",
+            details: "A standing pose that strengthens the legs and core.",
+            image: "https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjZ8fHlvZ2ElMjBwb3NlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+            youtubeLink: "https://www.youtube.com/watch?v=a8hxNH6-Ss8"
+        },
+        {
+            title: "Cat-Cow Pose (Marjaryasana-Bitilasana)",
+            details: "A gentle flow that warms up the spine and improves flexibility.",
+            image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjh8fHlvZ2ElMjBwb3NlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+            youtubeLink: "https://www.youtube.com/watch?v=kqnua4rHVVA"
+        }
+
+    ];
+
+    function createYogaCard(pose) {
+        return `
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="${pose.image}" class="card-img-top" alt="${pose.title}">
+                        <div class="card-body">
+                            <h5 class="card-title">${pose.title}</h5>
+                            <p class="card-text">${pose.details}</p>
+                            <a href="${pose.youtubeLink}" class="btn btn-primary" target="_blank">Watch Tutorial</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+    }
+
+    function displayYogaPoses(poses) {
+        const yogaCardsContainer = document.getElementById('yogaCards');
+        yogaCardsContainer.innerHTML = poses.map(createYogaCard).join('');
+    }
+
+    function searchYogaPoses() {
+        const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+        const filteredPoses = yogaPoses.filter(pose =>
+            pose.title.toLowerCase().includes(searchTerm) ||
+            pose.details.toLowerCase().includes(searchTerm)
+        );
+        displayYogaPoses(filteredPoses);
+    }
+
+    document.getElementById('searchInput').addEventListener('input', searchYogaPoses);
+
+    displayYogaPoses(yogaPoses);
+</script>
+
+
+
+
+
+
+{% endblock %}

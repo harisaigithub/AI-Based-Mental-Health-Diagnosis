@@ -1,0 +1,158 @@
+{% extends 'base2.html' %} {% load static %} {% block content %}
+
+<div class="container mt-5">
+  <h2 class="text-center mb-4" style="font-weight: bold; color: #333">📝 Your Prediction History</h2>
+
+  <div class="table-responsive">
+    <table class="table table-striped table-hover text-center" style="border-radius: 10px; overflow: hidden">
+      <thead style="background: #007bff; color: white">
+        <tr>
+          <th style="padding: 15px">#</th>
+          <th style="padding: 15px">Input Text</th>
+          <th style="padding: 15px">Result</th>
+          <th style="padding: 15px">Time</th>
+          <th style="padding: 15px">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for prediction in predictions %}
+        <tr style="background: {% if prediction.prediction_result == 'Mental Health Detected' %} #ffcccc {% else %} #ccffcc {% endif %};">
+          <td>{{ forloop.counter }}</td>
+          <td style="max-height: 100px; overflow-y: auto; white-space: nowrap; text-overflow: ellipsis; word-wrap: break-word;">
+            {{ prediction.input_text }}
+        </td>
+        
+          <td>
+            <strong style="color: {% if prediction.prediction_result == 'Mental Health Detected' %} red {% else %} green {% endif %};"> {{ prediction.prediction_result }} </strong>
+          </td>
+          <td>{{ prediction.timestamp|date:"M d, Y H:i A" }}</td>
+          <td>
+            <!-- Download Report Button -->
+            <a href="{% url 'download_specific_report' prediction.id %}" class="btn btn-secondary btn-sm">Download Specific Report</a>
+
+            <!-- Music Therapy Button -->
+            {% if prediction.music_therapy_links|length == 0 %}
+            <button class="btn btn-warning btn-sm" onclick="selectTherapy('{{ prediction.id }}', 'music')">🎵 Music Therapy</button>
+            {% else %}
+            <button class="btn btn-primary btn-sm" data-links='{{ prediction.music_therapy_links_json|safe }}' onclick="showModal('music', this)">Show Music Links</button>
+            {% endif %}
+
+            <!-- Guided Workout Button -->
+            {% if not prediction.guided_workout_plan %}
+            <button class="btn btn-success btn-sm" onclick="selectTherapy('{{ prediction.id }}', 'workout')">🧘 Plan Guided Workout</button>
+            {% else %}
+            <button class="btn btn-info btn-sm" data-plan="{{ prediction.guided_workout_plan|escapejs }}" onclick="showModal('workout', this)">Show Workout Plan</button>
+            {% endif %}
+          </td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="5" class="text-center" style="color: gray">🚫 No predictions found.</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Download Report Button -->
+  <div class="text-center mt-4">
+    <a href="{% url 'download_report' %}" class="btn btn-primary btn-lg py-3">Download Full Report</a>
+  </div>
+</div>
+
+
+<!-- Bootstrap Modal for showing therapy content -->
+<div class="modal fade" id="therapyModal" tabindex="-1" aria-labelledby="therapyModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="therapyModalLabel"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="therapyModalBody">
+        <!-- Content will be inserted dynamically -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Function to call the API and store therapy content in the prediction record
+  function selectTherapy(predictionId, therapyType) {
+    fetch("{% url 'select_therapy' %}", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRFToken": "{{ csrf_token }}",
+      },
+      body: JSON.stringify({
+        prediction_id: predictionId,
+        therapy_type: therapyType,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.status === "success") {
+          alert("✅ " + data.message);
+          location.reload();
+        } else {
+          alert("❌ " + data.message);
+        }
+      })
+      .catch((error) => console.error("Error:", error));
+  }
+
+  // Function to show stored therapy content in a Bootstrap modal.
+  function showModal(therapyType, btnElem) {
+    let modalTitle = "";
+    let modalBody = "";
+
+    if (therapyType === "music") {
+      modalTitle = "Music Therapy - YouTube Links";
+      let dataLinks = btnElem.getAttribute("data-links");
+      let links;
+      try {
+        links = JSON.parse(dataLinks);
+      } catch (e) {
+        console.error("Error parsing links:", e);
+        links = [];
+      }
+      if (links.length === 0) {
+        modalBody = "<p>No music therapy links available.</p>";
+      } else {
+        modalBody = "<ul class='list-group'>";
+        links.forEach(function (link) {
+          modalBody += "<li class='list-group-item'><a href='" + link + "' target='_blank'>" + link + "</a></li>";
+        });
+        modalBody += "</ul>";
+      }
+    } else if (therapyType === "workout") {
+      modalTitle = "Guided Workout Plan";
+      let plan = btnElem.getAttribute("data-plan");
+      if (!plan) {
+        modalBody = "<p>No guided workout plan available.</p>";
+      } else {
+        // Decode Unicode escapes in the workout plan text.
+        let planClean;
+        try {
+          planClean = JSON.parse('"' + plan.replace(/"/g, '\\"') + '"');
+        } catch (e) {
+          console.error("Error parsing workout plan:", e);
+          planClean = plan; // fallback
+        }
+        modalBody = "<pre style='white-space: pre-wrap;'>" + planClean + "</pre>";
+      }
+    }
+
+    document.getElementById("therapyModalLabel").innerHTML = modalTitle;
+    document.getElementById("therapyModalBody").innerHTML = modalBody;
+
+    var therapyModal = new bootstrap.Modal(document.getElementById("therapyModal"));
+    therapyModal.show();
+  }
+</script>
+
+{% endblock %}

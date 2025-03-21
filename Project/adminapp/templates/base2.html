@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="../assets/" data-template="vertical-menu-template-free">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    
+    <title>Client Request Dashboard</title>
+    
+    <meta name="description" content="" />
+    
+    <link rel="icon" type="image/x-icon" href="{% static 'new-small-logo.png' %}" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- MDB CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{% static 'adminfiles/assets/vendor/libs/jquery/jquery.js' %}"></script>
+    
+    <!-- MDB JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="{% static 'adminfiles/assets/vendor/fonts/boxicons.css' %}" />
+    
+    <link rel="stylesheet" href="{% static 'adminfiles/assets/vendor/css/core.css' %}" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="{% static 'adminfiles/assets/vendor/css/theme-default.css' %}" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="{% static 'adminfiles/assets/css/demo.css' %}" />
+    
+    <link rel="stylesheet" href="{% static 'adminfiles/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css' %}" />
+    <link rel="stylesheet" href="{% static 'adminfiles/assets/vendor/libs/apex-charts/apex-charts.css' %}" />
+    
+    <script src="{% static 'adminfiles/assets/vendor/js/helpers.js' %}"></script>
+    <script src="{% static 'adminfiles/assets/js/config.js' %}"></script>
+
+
+    <style>
+        /* Remove bullet points by overriding the ::before pseudo-element */
+.bg-menu-theme .menu-sub > .menu-item > .menu-link::before,
+.bg-menu-theme .menu-sub > .menu-item.active > .menu-link::before,
+.layout-wrapper .menu-item > .menu-link::before {
+    content: none !important;  /* Remove any generated content (including bullets) */
+    width: 0 !important;
+    height: 0 !important;
+    border: none !important;   /* Ensure no border is added by ::before */
+}
+
+/* Additional Reset for List Items */
+.bg-menu-theme .menu-sub {
+    list-style: none !important;  /* Remove any default list style */
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+}
+
+.bg-menu-theme .menu-sub li {
+    padding-left: 0 !important;  /* Remove any padding from list items */
+    margin-left: 0 !important;   /* Remove left margin */
+}
+
+    </style>
+
+</head>
+
+<body style="background: linear-gradient(135deg, #FFF6E5, #FFF6E5);">
+    
+    <div class="layout-wrapper layout-content-navbar">
+        <div class="layout-container">
+            
+            <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+                <div class="app-brand demo">
+                    <a href="" class="app-brand-link mx-auto">
+                        <img src="{% static 'adminfiles/user2.png' %}" alt="" style="width: 52px; height: 52px; border: 2px solid rgb(0, 0, 252); padding: 3px; border-radius: 50%;">
+                    </a>
+                    
+                    <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+                        <i class="bx bx-chevron-left bx-sm align-middle"></i>
+                    </a>
+                </div>
+                
+                <div class="menu-inner-shadow"></div>
+                
+                <ul class="menu-inner py-1">
+                    <li class="menu-item">
+                        <a href="{% url 'admin_dashboard' %}" class="menu-link">
+                            <i class="menu-icon tf-icons">
+                                <img src="{% static 'adminfiles/img/ic2.png' %}" alt="Project Management Icon" style="width: 22px; height: 22px;">
+                            </i>
+                            <div data-i18n="Analytics">Dashboard</div>
+                        </a>
+                    </li>
+
+
+                    
+                    
+                    
+                    <li class="menu-item {% if request.resolver_match.url_name == 'user_chatbot' or request.resolver_match.url_name == 'detection' or request.resolver_match.url_name == 'result' %} open {% endif %}">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons">
+                                <img src="{% static 'adminfiles/newst.png' %}" alt="Project Management Icon" style="width: 22px; height: 22px;">
+                            </i>
+                            <div data-i18n="Layouts"> Chatbot </div>
+                        </a>
+                    
+                        <ul class="menu-sub" style="list-style: none !important; padding-left: 0 !important; margin-left: 0 !important;">
+                            <li class="menu-item {% if request.resolver_match.url_name == 'user_chatbot' %} active {% endif %}">
+                                <a href="{% url 'user_chatbot' %}" class="menu-link">
+                                    <img src="{% static 'adminfiles/img1.png' %}" alt="Project Management Icon" class="mx-2" style="width: 20px; height: 20px;">
+                                    <div data-i18n="Without menu"> Chat with bot</div>
+                                </a>
+                            </li>
+                            
+                            <li class="menu-item {% if request.resolver_match.url_name == 'detection' %} active {% endif %}">
+                                <a href="{% url 'detection' %}" class="menu-link">
+                                    <img src="{% static 'adminfiles/img2.png' %}" alt="Project Management Icon" class="mx-2" style="width: 20px; height: 20px;">
+                                    <div data-i18n="Container">Detection</div>
+                                </a>
+                            </li>
+                            
+                            <li class="menu-item {% if request.resolver_match.url_name == 'result' %} active {% endif %}">
+                                <a href="{% url 'result' %}" class="menu-link">
+                                    <img src="{% static 'adminfiles/img3.png' %}" alt="Project Management Icon" class="mx-2" style="width: 20px; height: 20px;">
+                                    <div data-i18n="Container">Detection Results</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+
+
+                    <li class="menu-item {% if request.resolver_match.url_name == 'user_profile'  %} open {% endif %}">
+                        <a href="{% url 'user_profile' %}" class="menu-link ">
+                            <i class="menu-icon tf-icons">
+                                <img src="{% static 'adminfiles/newst2.png' %}" alt="Project Management Icon" style="width: 22px; height: 22px;">
+                            </i>
+                            <div data-i18n="Layouts">My profile </div>
+                        </a>
+                        
+                        
+                    </li>
+
+
+
+                    <li class="menu-item {% if request.resolver_match.url_name == 'feedback'  %} open {% endif %}">
+                        <a  class="menu-link " href="{% url 'feedback' %}">
+                            <i class="menu-icon tf-icons">
+                                <img src="{% static 'adminfiles/newst3.png' %}" alt="Project Management Icon" style="width: 22px; height: 22px;">
+                            </i>
+                            <div data-i18n="Layouts">Feedback</div>
+                        </a>
+                        
+                        
+                    </li>
+
+
+
+                    
+                    <li class="menu-item {% if request.resolver_match.url_name == 'mood_assistance'  %} open {% endif %}">
+                        <a  class="menu-link " href="{% url 'mood_assistance' %}">
+                            <i class="menu-icon tf-icons">
+                                <img src="{% static 'adminfiles/img4.png' %}" alt="Project Management Icon" style="width: 22px; height: 22px;">
+                            </i>
+                            <div data-i18n="Layouts">Mood Assistance</div>
+                        </a>
+                        
+                        
+                    </li>
+                    <li class="menu-item {% if request.resolver_match.url_name == 'yoga'  %} open {% endif %}">
+                        <a  class="menu-link " href="{% url 'yoga' %}">
+                            <i class="menu-icon tf-icons">
+                                <img src="{% static 'adminfiles/img10.png' %}" alt="Project Management Icon" style="width: 22px; height: 22px;">
+                            </i>
+                            <div data-i18n="Layouts">Yoga Poster</div>
+                        </a>
+                        
+                        
+                    </li>
+
+                    <li class="menu-item">
+                        <a  class="menu-link " href="{% url 'download_report' %}">
+                            <i class="menu-icon tf-icons">
+                                <img src="{% static 'adminfiles/newst5png.png' %}" alt="Project Management Icon" style="width: 22px; height: 22px;">
+                            </i>
+                            <div data-i18n="Layouts">Download Reports</div>
+                        </a>
+                        
+                        
+                    </li>
+                    
+                </ul>
+            </aside>
+            
+            <div class="layout-page">
+                
+                <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme " id="layout-navbar">
+                    <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+                        <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+                            <i class="bx bx-menu bx-sm"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="navbar-nav-right  d-flex align-items-center" id="navbar-collapse">
+                        <div class="d-flex justify-content-center align-items-center w-100">
+                            <div class="d-flex align-items-center">
+                                <img src="{% static 'assets/img/logo-name.png' %}" alt="" style="width: 130px; ">
+                        </div>
+                    </div>
+                    
+                    <ul class="navbar-nav flex-row align-items-center ms-auto">
+                        <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                            <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+                                <div class="avatar avatar-online">
+                                    <img src="{% static 'assets/img/logor.png' %}" alt class="w-px-40 h-auto rounded-circle" />
+                                </div>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'user_profile' %}">
+                                        <i class="bx bx-user me-2"></i>
+                                        <span class="align-middle">My Profile</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'admin_logout' %}">
+                                        <i class="bx bx-power-off me-2"></i>
+                                        <span class="align-middle">Log Out</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                
+            </nav>
+            
+            {% block content %}
+            
+            {% endblock %}
+            
+            <footer class="content-footer footer bg-footer-theme">
+               
+            </footer>
+            
+            <div class="content-backdrop fade"></div>
+        </div>
+        
+    </div>
+    
+</div>
+
+<div class="layout-overlay layout-menu-toggle"></div>
+</div>
+
+<script src="{% static 'adminfiles/assets/vendor/libs/popper/popper.js' %}"></script>
+<script src="{% static 'adminfiles/assets/vendor/js/bootstrap.js' %}"></script>
+<script src="{% static 'adminfiles/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js' %}"></script>
+
+<script src="{% static 'adminfiles/assets/vendor/js/menu.js' %}"></script>
+
+<script src="{% static 'adminfiles/assets/vendor/libs/apex-charts/apexcharts.js' %}"></script>
+
+<script src="{% static 'adminfiles/assets/js/main.js' %}"></script>
+
+<script src="{% static 'adminfiles/assets/js/dashboards-analytics.js' %}"></script>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+{% if messages %}
+{% for message in messages %}
+{% if message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+<script>
+    swal({
+        title: "Warning!",
+        text: "{{ message|safe }}",
+        icon: "warning",
+        button: "OK",
+    });
+</script>
+{% elif message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+<script>
+    swal({
+        title: "Info :)",
+        text: "{{ message|safe }}",
+        icon: "info",
+        button: "OK",
+    });
+</script>
+{% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+<script>
+    swal({
+        title: "Error!",
+        text: "{{ message|safe }}",
+        icon: "error",
+        button: "OK",
+    });
+</script>
+{% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+<script>
+    swal({
+        title: "Success!",
+        text: "{{ message|safe }}",
+        icon: "success",
+        button: "OK",
+    });
+</script>
+{% endif %}
+{% endfor %}
+{% endif %}
+</body>
+</html>
+</html>

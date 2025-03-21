@@ -1,0 +1,88 @@
+{% extends 'base2.html' %} {% load static %} {% block content %}
+<style>
+    .custom-card {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        padding: 20px;
+        transition: transform 0.3s ease-in-out;
+        height: 100%;
+    }
+
+    .custom-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .custom-card .card-title {
+        color: #007bff;
+        font-size: 1.2rem;
+    }
+
+    .custom-card .card-text {
+        font-size: 0.9rem;
+    }
+
+    .custom-card .icon {
+        font-size: 3rem;
+        color: #007bff;
+        margin-bottom: 1rem;
+    }
+
+    .custom-card .animated-icon {
+        animation: bounce 1s infinite;
+    }
+
+    .card-description {
+        font-size: 0.8rem;
+        color: #6c757d;
+        margin-top: 1rem;
+    }
+
+    .centered-cards {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80vh; /* Adjust as needed */
+    }
+
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+        }
+        40% {
+            transform: translateY(-20px);
+        }
+        60% {
+            transform: translateY(-10px);
+        }
+    }
+</style>
+
+<div class="container">
+    <div class="row centered-cards">
+        <div class="col-md-6" style="border: 2px solid #fa5c14; border-radius: 20px;">
+            <div class="card border-0 shadow-sm custom-card">
+                <div class="card-body text-center">
+                    <i class="fas fa-user-circle icon animated-icon"></i>
+                    <h5 class="card-title mb-3">No Logins</h5>
+                    <p class="card-text" style="font-size: 3rem; font-weight: bold; color: #ff0000;">
+                        {{la.No_Of_Times_Login}}
+                    </p>
+                    
+                    <p class="card-description">Tracking of  how many times you have logged in to use the Calmora tool.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6" >
+            <div class="card border-0 shadow-sm custom-card "  >
+                <div class="card-body text-center">
+                    <i class="far fa-clock icon animated-icon"></i>
+                    <h5 class="card-title mb-3">Login Time</h5>
+                    <p class="card-text " style="font-size: 2rem; font-weight: bold; color: #ff0000;">{{la.Last_Login_Date}} {{la.Last_Login_Time}} </p>
+                    <p class="card-description">Showing the timestamp of the last  login time activity.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

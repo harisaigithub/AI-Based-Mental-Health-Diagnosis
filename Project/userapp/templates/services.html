@@ -1,0 +1,99 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+
+<div class="container py-5">
+  <div class="mt-lg-5 pt-lg-5">
+    <h2 class="text-center" style="font-size: 2.5rem; font-weight: bold; color: #007bff; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px;">
+      We Offer Best Services
+    </h2>
+  
+    <div class="row text-center">
+      <!-- Mood Diary -->
+      <div class="col-lg-4 col-md-6 col-12 mb-4">
+        <div class="service-box" style="background-color: rgba(248, 249, 250, 0); padding: 40px; border-radius: 50%; box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); transition: transform 0.3s, box-shadow 0.3s; height: 300px; width: 300px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+          <img src="{% static 'h1.avif' %}" alt="Mood Diary" style="width: 100px; height: 100px; margin-bottom: 20px; border-radius: 50%; object-fit: cover;">
+          <h4 style="font-size: 1.2rem; font-weight: bold; color: #007bff;">Mood Diary</h4>
+          <p style="color: #555; font-size: 1rem; text-align: center;">Log daily emotions and track patterns to understand your mental well-being.</p>
+        </div>
+      </div>
+  
+      <!-- Guided Workout Exercises -->
+      <div class="col-lg-4 col-md-6 col-12 mb-4">
+        <div class="service-box" style="background-color: rgba(248, 249, 250, 0); padding: 40px; border-radius: 50%; box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); transition: transform 0.3s, box-shadow 0.3s; height: 300px; width: 300px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+          <img src="{% static 'h2.avif' %}" alt="Guided Workout Exercises" style="width: 100px; height: 100px; margin-bottom: 20px; border-radius: 50%; object-fit: cover;">
+          <h4 style="font-size: 1.2rem; font-weight: bold; color: #007bff;">Guided Workout Exercises</h4>
+          <p style="color: #555; font-size: 1rem; text-align: center;">Reduce stress with tailored exercises, including breathing techniques and yoga.</p>
+        </div>
+      </div>
+  
+      <!-- AI Chatbot -->
+      <div class="col-lg-4 col-md-6 col-12 mb-4">
+        <div class="service-box" style="background-color: rgba(248, 249, 250, 0); padding: 40px; border-radius: 50%; box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); transition: transform 0.3s, box-shadow 0.3s; height: 300px; width: 300px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+          <img src="{% static 'h3.avif' %}" alt="AI Chatbot" style="width: 100px; height: 100px; margin-bottom: 20px; border-radius: 50%; object-fit: cover;">
+          <h4 style="font-size: 1.2rem; font-weight: bold; color: #007bff;">AI Chatbot</h4>
+          <p style="color: #555; font-size: 1rem; text-align: center;">24/7 support with instant tips and calming strategies for emotional balance.</p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="row text-center">
+      <!-- Real-Time Monitoring -->
+      <div class="col-lg-4 col-md-6 col-12 mb-4">
+        <div class="service-box" style="background-color: rgba(248, 249, 250, 0); padding: 40px; border-radius: 50%; box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); transition: transform 0.3s, box-shadow 0.3s; height: 300px; width: 300px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+          <img src="{% static 'h4.avif' %}" alt="Real-Time Monitoring" style="width: 100px; height: 100px; margin-bottom: 20px; border-radius: 50%; object-fit: cover;">
+          <h4 style="font-size: 1.2rem; font-weight: bold; color: #007bff;">Real-Time Monitoring</h4>
+          <p style="color: #555; font-size: 1rem; text-align: center;">Track stress, sleep, and heart rate using wearable device integration.</p>
+        </div>
+      </div>
+  
+      <!-- Relaxation Tools -->
+      <div class="col-lg-4 col-md-6 col-12 mb-4">
+        <div class="service-box" style="background-color: rgba(248, 249, 250, 0); padding: 40px; border-radius: 50%; box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); transition: transform 0.3s, box-shadow 0.3s; height: 300px; width: 300px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+          <img src="{% static 'h5.avif' %}" alt="Relaxation Tools" style="width: 100px; height: 100px; margin-bottom: 20px; border-radius: 50%; object-fit: cover;">
+          <h4 style="font-size: 1.2rem; font-weight: bold; color: #007bff;">Relaxation Tools</h4>
+          <p style="color: #555; font-size: 1rem; text-align: center;">Enjoy guided meditations, calming sounds, and visual therapies.</p>
+        </div>
+      </div>
+  
+      <!-- Progress Reports -->
+      <div class="col-lg-4 col-md-6 col-12 mb-4">
+        <div class="service-box" style="background-color: rgba(248, 249, 250, 0); padding: 40px; border-radius: 50%; box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); transition: transform 0.3s, box-shadow 0.3s; height: 300px; width: 300px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+          <img src="{% static 'h6.avif' %}" alt="Progress Reports" style="width: 100px; height: 100px; margin-bottom: 20px; border-radius: 50%; object-fit: cover;">
+          <h4 style="font-size: 1.2rem; font-weight: bold; color: #007bff;">Progress Reports</h4>
+          <p style="color: #555; font-size: 1rem; text-align: center;">View detailed reports to monitor improvements and celebrate milestones.</p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="row text-center">
+      <!-- Sentiment Analysis -->
+      <div class="col-lg-4 col-md-6 col-12 mb-4">
+        <div class="service-box" style="background-color: rgba(248, 249, 250, 0); padding: 40px; border-radius: 50%; box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); transition: transform 0.3s, box-shadow 0.3s; height: 300px; width: 300px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+          <img src="{% static 'h7.avif' %}" alt="Sentiment Analysis" style="width: 100px; height: 100px; margin-bottom: 20px; border-radius: 50%; object-fit: cover;">
+          <h4 style="font-size: 1.2rem; font-weight: bold; color: #007bff;">Sentiment Analysis</h4>
+          <p style="color: #555; font-size: 1rem; text-align: center;">Analyze your thoughts to detect emotional triggers and mood changes.</p>
+        </div>
+      </div>
+  
+      <!-- Crisis Alerts -->
+      <div class="col-lg-4 col-md-6 col-12 mb-4">
+        <div class="service-box" style="background-color: rgba(248, 249, 250, 0); padding: 40px; border-radius: 50%; box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); transition: transform 0.3s, box-shadow 0.3s; height: 300px; width: 300px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+          <img src="{% static 'h8.avif' %}" alt="Crisis Alerts" style="width: 100px; height: 100px; margin-bottom: 20px; border-radius: 50%; object-fit: cover;">
+          <h4 style="font-size: 1.2rem; font-weight: bold; color: #007bff;">Crisis Alerts</h4>
+          <p style="color: #555; font-size: 1rem; text-align: center;">Get timely alerts for high-risk situations and immediate support options.</p>
+        </div>
+      </div>
+  
+      <!-- Personalized Insights -->
+      <div class="col-lg-4 col-md-6 col-12 mb-4">
+        <div class="service-box" style="background-color: rgba(248, 249, 250, 0); padding: 40px; border-radius: 50%; box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); transition: transform 0.3s, box-shadow 0.3s; height: 300px; width: 300px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+          <img src="{% static 'h9.avif' %}" alt="Personalized Insights" style="width: 100px; height: 100px; margin-bottom: 20px; border-radius: 50%; object-fit: cover;">
+          <h4 style="font-size: 1.2rem; font-weight: bold; color: #007bff;">Personalized Insights</h4>
+          <p style="color: #555; font-size: 1rem; text-align: center;">Receive tailored mindfulness activities and resources based on your needs.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock%}

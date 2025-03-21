@@ -1,0 +1,99 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+
+
+<div class="container mt-5 pt-2">
+  <h2 class="text-center my-4 pt-5" style="font-weight: bold; color: #333;">💬 User Feedbacks</h2>
+
+  <div class="row d-flex justify-content-center">
+    {% for feedback in feedbacks %}
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 shadow-lg border-0"
+        style="border-radius: 15px; transition: transform 0.3s ease-in-out; background: linear-gradient(135deg, #ffffff, #f8f9fa);">
+
+        <!-- Card Header (User Info) -->
+        <div class="card-header d-flex align-items-center"
+          style="border-top-left-radius: 15px; border-top-right-radius: 15px; background: #007bff; color: white; padding: 15px;">
+          {% if feedback.user.photo %}
+          <img src="{{ feedback.user.photo.url }}" alt="{{ feedback.user.full_name }}" class="rounded-circle me-3"
+            style="width: 55px; height: 55px; object-fit: cover; border: 3px solid white;">
+          {% else %}
+          <img src="{% static 'default-profile.png' %}" alt="Default Profile" class="rounded-circle me-3"
+            style="width: 55px; height: 55px; object-fit: cover; border: 3px solid white;">
+          {% endif %}
+          <div>
+            <h5 class="mb-0" style="font-weight: bold;">{{ feedback.user.full_name }}</h5>
+            <small>{{ feedback.Feedback_Time|date:"M d, Y H:i A" }}</small>
+          </div>
+        </div>
+
+        <!-- Card Body (Review & Rating) -->
+        <div class="card-body" style="padding: 20px;">
+          <p class="card-text" style="font-size: 16px; color: #444;">
+            "{{ feedback.Review }}"
+          </p>
+          <p class="mb-1" style="font-weight: bold; color: #ff9800;">
+            ⭐ Rating: <span style="color: black;">{{ feedback.Rating }}</span>
+          </p>
+          <p class="mb-1" style="font-weight: bold; color: #28a745;">
+            🔹 Sentiment: <span style="color: black;">{{ feedback.Sentiment }}</span>
+          </p>
+        </div>
+
+        <!-- Card Footer -->
+        <div class="card-footer text-center"
+          style="background: #f1f1f1; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
+          <span style="color: #007bff; font-weight: bold;">📅 {{ feedback.Feedback_Time|date:"F d, Y" }}</span>
+        </div>
+      </div>
+    </div>
+    {% empty %}
+    <div class="col-12">
+      <p class="text-center" style="color: #666; font-size: 18px;">🚫 No feedback available.</p>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<section id="findUs">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-5 mb-6 text-center">
+        <h5 class="text-danger">FIND US</h5>
+        <h2>Access us easily</h2>
+      </div>
+      <div class="col-12">
+        <div class="card card-span rounded-2 mb-3">
+          <div class="row">
+            
+            <div class="col-md-6 col-lg-5 d-flex flex-center">
+              <div class="card-body">
+                <h5>Contact with us</h5>
+                <p class="text-700 my-4"> <i class="fas fa-map-marker-alt text-warning me-3"></i><span>India</span></p>
+                <p
+                  ><i class="fas fa-phone-alt text-warning me-3"></i><span class="text-700">Monday - Friday: 10 am - 10pm<br /><span class="ps-4">Sunday: 11 am - 9pm </span></span></p
+                >
+                <p><i class="fas fa-envelope text-warning me-3"> </i><a class="text-700" href="mailto:vctung@outlook.com"> info@VVIT.in</a></p>
+                <ul class="list-unstyled list-inline mt-5">
+                  <li class="list-inline-item"
+                    ><a class="text-decoration-none" href="#!"><i class="fab fa-facebook-square fs-2"></i></a
+                  ></li>
+                  <li class="list-inline-item"
+                    ><a class="text-decoration-none" href="#!"><i class="fab fa-instagram-square fs-2"></i></a
+                  ></li>
+                  <li class="list-inline-item"
+                    ><a class="text-decoration-none" href="#!"><i class="fab fa-twitter-square fs-2"></i></a
+                  ></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center">
+          <button class="btn btn-primary px-5 mt-4" type="submit"><i class="fas fa-phone-alt me-2"></i><a class="text-light" href="tel:9959382287">Call us ************</a></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end of .container-->
+</section>
+
+{% endblock %}

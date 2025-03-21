@@ -1,0 +1,137 @@
+{% extends 'base2.html' %} {% load static %} {% load custom_filters %} {% block content %}
+<!-- Include FontAwesome CDN if not already included in base2.html -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHq6R2eDgI1R6TrvjIyZpSdxlzRX7MZyS2QZg0pJ4jV9bKjp6COn0XThzJzZWVQjL5XOmH8A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+  /* Container styling */
+  .chat-container {
+    max-width: 956px;
+    margin: auto;
+    padding-top: 20px;
+  }
+  /* Header styling */
+  .chat-header {
+    background: #007bff;
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px 8px 0 0;
+    text-align: center;
+    font-size: 1.2rem;
+  }
+  /* Chat area styling */
+  .chat-body {
+    height: 550px;
+    overflow-y: auto;
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 0 0 8px 8px;
+  }
+  /* Chat bubble common styling */
+  .chat-bubble {
+    border-radius: 15px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    max-width: 80%;
+    display: flex;
+    align-items: center;
+    animation: fadeIn 0.5s ease-in;
+  }
+  /* Specific styling for user messages */
+  .user-message {
+    background-color: #d4edda;
+    align-self: flex-start;
+    text-align: left;
+  }
+  /* Specific styling for bot messages */
+  .bot-message {
+    background-color: #d1ecf1;
+    align-self: flex-end;
+    text-align: left;
+  }
+  /* Icon styling */
+  .chat-icon {
+    font-size: 1.5rem;
+    margin-right: 10px;
+  }
+  /* For list styling within bot messages */
+  .bot-message ul {
+    padding-left: 20px;
+    margin-bottom: 0;
+  }
+  /* Fade in animation for new messages */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  /* Footer layout */
+  .chat-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+</style>
+
+<div class="container chat-container">
+  <div class="card shadow">
+    <div class="card-header chat-header"> <i class="fas fa-comments"></i> Calmora Mental Health Chatbot </div>
+    <div class="card-body chat-body d-flex flex-column p-4">
+      {% for conversation in conversations %}
+      <div class="chat-bubble user-message">
+        {% comment %} <i class="fas fa-user chat-icon"></i> {% endcomment %}
+        <div>
+          <strong>You:</strong><br />
+          {{ conversation.user_message }}
+        </div>
+      </div>
+      <div class="chat-bubble bot-message">
+        {% comment %} <i class="fas fa-headset chat-icon"></i> {% endcomment %}
+        <div>
+          <strong>Calmora:</strong>
+          <ul class="list-group list-group-flush">
+            {% for line in conversation.bot_response|split_lines %}
+            <li class="list-group-item border-0 py-1">{{ line }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="card-footer chat-footer">
+      <!-- New Chat Button -->
+      <!-- Message Form -->
+      <form method="post" class="d-flex" style="flex: 1; margin-left: 10px">
+          {% csrf_token %}
+          <input type="text" name="message" class="form-control me-2" placeholder="Type your message..." required />
+          <button type="submit" class="btn btn-primary"> <i class="fas fa-paper-plane"></i> Send </button>
+          <button id="new-chat-btn" class="btn btn-danger"> <i class="fas fa-trash-alt"></i> New Chat </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Auto-scroll to bottom
+  document.addEventListener("DOMContentLoaded", function () {
+    const chatBody = document.querySelector(".chat-body");
+    chatBody.scrollTop = chatBody.scrollHeight;
+  });
+
+  // Clear input after submit
+  document.querySelector("form").addEventListener("submit", function () {
+    this.querySelector("input").value = "";
+  });
+
+  // Handle New Chat confirmation and redirect
+  document.getElementById("new-chat-btn").addEventListener("click", function () {
+    if (confirm("Are you sure you want to start a new chat? This will delete all your previous chat history.")) {
+      window.location.href = "{% url 'new_chat' %}";
+    }
+  });
+</script>
+{% endblock %}

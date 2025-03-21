@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+<section class="py-4" id="about-project" style="background: linear-gradient(135deg, #FFF6E5, #FFF6E5); padding-bottom: 50px;">
+  <div class="container text-center mt-lg-5 pt-lg-5">
+    <div class="row align-items-center">
+      <!-- Left side (text) -->
+      <div class="col-md-6">
+        <h2 class="fw-bold mb-2" style="font-size: 24px; color: #0066cc; text-transform: uppercase;">About Our AI-Powered Mental Health Companion</h2>
+        <p style="font-size: 14px; color: #333; line-height: 1.4;">
+          We combine advanced AI technology and mental health expertise to offer personalized mental health support. Our platform analyzes your mental health status and provides tailored recommendations, calming exercises, and therapist matching.
+        </p>
+        <p style="font-size: 16px; color: #0066cc; font-weight: 600;">How It Works?</p>
+      </div>
+      <!-- Right side (image) -->
+      <div class="col-md-6">
+        <img src="https://img.freepik.com/free-vector/silhouette-female-yoga-pose-against-mandala-design_1048-13082.jpg?uid=R159012559&ga=GA1.1.1578528612.1741966316&semt=ais_hybrid" class="img-fluid rounded-3 shadow-lg" style="max-width: 70%; height: auto;" alt="AI Powered Mental Health" style="max-width: 100%; height: auto;"/>
+      </div>
+    </div>
+  </div>
+
+  <div class="container py-5">
+    <div class="row text-center">
+      <!-- First Card -->
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-lg border-light rounded" style="background: #fff; height: 100%; padding: 20px; border: 2px solid #0066cc; transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;">
+          <div class="card-body">
+            <h5 class="card-title" style="font-size: 18px; color: #0066cc; font-weight: bold;">AI-Powered Mental Health Assessment</h5>
+            <p style="font-size: 14px; color: #333;">
+              Our AI analyzes your responses to create a personalized mental health assessment, giving you insights to guide your wellness journey.
+            </p>
+          </div>
+          <div class="card-footer" style="background: transparent; border-top: 1px solid #f0f0f0;">
+            <a href="#!" class="btn btn-outline-primary" style="font-size: 14px; color: #0066cc; font-weight: 600; border-radius: 25px; padding: 8px 20px;">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Second Card -->
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-lg border-light rounded" style="background: #fff; height: 100%; padding: 20px; border: 2px solid #0066cc; transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;">
+          <div class="card-body">
+            <h5 class="card-title" style="font-size: 18px; color: #0066cc; font-weight: bold;">Real-Time Support</h5>
+            <p style="font-size: 14px; color: #333;">
+              Get 24/7 support from our AI, offering immediate responses to your mental health queries, plus calming exercises tailored to your needs.
+            </p>
+          </div>
+          <div class="card-footer" style="background: transparent; border-top: 1px solid #f0f0f0;">
+            <a href="#!" class="btn btn-outline-primary" style="font-size: 14px; color: #0066cc; font-weight: 600; border-radius: 25px; padding: 8px 20px;">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Third Card -->
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-lg border-light rounded" style="background: #fff; height: 100%; padding: 20px; border: 2px solid #0066cc; transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;">
+          <div class="card-body">
+            <h5 class="card-title" style="font-size: 18px; color: #0066cc; font-weight: bold;">Therapist Matching</h5>
+            <p style="font-size: 14px; color: #333;">
+              Based on your personal mental health needs, our AI matches you with the most suitable therapists for personalized care.
+            </p>
+          </div>
+          <div class="card-footer" style="background: transparent; border-top: 1px solid #f0f0f0;">
+            <a href="#!" class="btn btn-outline-primary" style="font-size: 14px; color: #0066cc; font-weight: 600; border-radius: 25px; padding: 8px 20px;">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Call to Action Section -->
+  <div class="container text-center py-4">
+    <h3 style="font-size: 20px; color: #0066cc; font-weight: 600;">Start Your Journey to Better Mental Health</h3>
+    <p style="font-size: 14px; color: #333; line-height: 1.5;">
+      Our platform is here to guide you every step of the way. Experience real-time support, personalized assessments, and therapist matching—all powered by AI.
+    </p>
+    <a href="{% url 'chatbot' %}" class="btn btn-lg" style="background-color: #0066cc; color: white; padding: 10px 30px; border-radius: 30px; font-weight: 600; text-transform: uppercase; transition: background-color 0.3s ease;">
+      Start Now
+    </a>
+  </div>
+
+</section>
+
+{% endblock %}

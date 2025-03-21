@@ -1,0 +1,204 @@
+{% extends 'base2.html' %} {% load static %} {% block content %}
+
+<style>
+  .container {
+    font-family: "Arial", Helvetica, sans-serif;
+  }
+  .mood-image {
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    height: 300px;
+  }
+  .chat-window {
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+  }
+  .chat-header {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+    padding: 15px;
+  }
+  .chat-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    background-color: #e9ecef;
+    border-top: 1px solid #dee2e6;
+  }
+  .chat-footer {
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-top: 1px solid #dee2e6;
+  }
+  .chat-input {
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ced4da;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .chat-input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  .chat-send-button {
+    border-radius: 20px;
+    background-color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  .chat-send-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+  .message-container {
+    display: flex;
+    margin-bottom: 15px;
+  }
+  .message-container.user {
+    justify-content: flex-end;
+  }
+  .message-container.bot {
+    justify-content: flex-start;
+  }
+  .chat-bubble {
+    max-width: 70%;
+    padding: 15px;
+    border-radius: 20px;
+    background-color: #007bff;
+    color: white;
+    text-align: left;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  .message-container.user .chat-bubble {
+    background-color: #6c757d;
+  }
+  .chat-content::-webkit-scrollbar {
+    width: 6px;
+  }
+  .chat-content::-webkit-scrollbar-thumb {
+    background-color: #007bff;
+    border-radius: 10px;
+  }
+  .bg-danger {
+    background-color: #dc3545; /* Red background color */
+  }
+  .bg-warning {
+    background-color: #ffc107; /* Yellow background color */
+  }
+</style>
+
+<div class="container mt-5">
+  <div class="row align-items-center justify-content-center">
+    <div class="col-md-5 d-flex justify-content-center">
+      {% comment %}
+      <img src="{% static 'main/img/img20.jpg' %}" class="img-fluid mood-image" alt="Mood Image" />
+      {% endcomment %}
+      <video class="mx-auto img-fluid" style="display: block; width: 400px; border-radius: 5px" autoplay loop muted playsinline>
+        <source src="{% static 'adminfiles/v1.mp4' %}" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <div class="col-md-7">
+      <div class="card chat-window">
+        <div class="card-header chat-header">Mental Illness Detection Chatbot</div>
+        <div class="card-body chat-content" id="chat-content">
+          <!-- Initial bot message -->
+          <div class="message-container bot mt-2 align-items-center">
+            <i class="fas fa-robot"></i> &nbsp;&nbsp;
+            <span class="chat-bubble">Hi, Tell me about how you're feeling today?</span>
+          </div>
+          <!-- User message (hidden initially) -->
+          <div class="message-container user mt-2 d-none align-items-center" id="user-message">
+            <i class="fas fa-user"></i> &nbsp;&nbsp;
+            <span class="chat-bubble"></span>
+          </div>
+          <!-- Bot response (hidden initially) -->
+          <div class="message-container bot mt-2 d-none align-items-center" id="bot-response">
+            <i class="fas fa-robot"></i> &nbsp;&nbsp;
+            <span class="chat-bubble chat-bubble2"></span>
+          </div>
+        </div>
+        <style>
+          .chat-input {
+            margin-right: 13px; /* Adjust the value as needed */
+          }
+        </style>
+        
+        <form id="chat-form" method="post" action="{% url 'predictresult' %}">
+          {% csrf_token %}
+          <div class="card-footer chat-footer">
+            <div class="input-group">
+              <input type="text" class="form-control chat-input" id="message-input" placeholder="Type a message" name="mood_pred" required />
+              <div class="input-group-append">
+                <button class="btn btn-primary chat-send-button" id="send-button" type="submit">Send</button>
+              </div>
+            </div>
+          </div>
+        </form>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function () {
+    console.log("jQuery is working!");
+    $("#chat-form").submit(function (event) {
+      event.preventDefault(); // Prevent default form submission
+
+      var userInput = $("#message-input").val();
+      if (userInput.trim() === "") return;
+
+      // Show user's message
+      $("#user-message .chat-bubble").text(userInput);
+      $("#user-message").removeClass("d-none");
+
+      // Serialize form data BEFORE clearing the input field
+      var formData = $(this).serialize();
+
+      // Now clear the input field
+      $("#message-input").val("");
+
+      // Scroll chat content to the bottom
+      var chatContent = $("#chat-content");
+      chatContent.scrollTop(chatContent[0].scrollHeight);
+
+      $.ajax({
+        type: "POST",
+        url: $(this).attr("action"),
+        data: formData,
+        dataType: "json",
+        success: function (response) {
+          // Use the final_result from the JSON response
+          var botText = response.final_result;
+          var bgClass = response.final_result === "Mental Health Detected" ? "bg-danger" : "bg-warning";
+
+          // Update the bot response element
+          $("#bot-response .chat-bubble2").text(botText).removeClass("bg-danger bg-warning").addClass(bgClass);
+          $("#bot-response").removeClass("d-none");
+
+          // Scroll chat content to the bottom after bot's reply is added
+          chatContent.scrollTop(chatContent[0].scrollHeight);
+        },
+        error: function (error) {
+          console.log("Error:", error);
+        },
+      });
+    });
+  });
+</script>
+
+{% endblock %}
