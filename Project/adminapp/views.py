@@ -29,7 +29,11 @@ def admin_dashboard(request):
 
 
 
+import nltk
+nltk.download('wordnet')  # Ensure WordNet is downloaded
 
+from nltk.stem import WordNetLemmatizer
+wo = WordNetLemmatizer()
 
 
 

@@ -1,0 +1,33 @@
+AI powered mental health diagnosis
+1. Importing Libraries and Data
+Various libraries for data manipulation, visualization, model building, and statistical analysis are imported. These include libraries such as pandas, numpy, sklearn, and matplotlib.
+A dataset (likely related to mental health in tech workers) is loaded using pandas from a CSV file.
+2. Exploratory Data Analysis (EDA)
+The dimensions of the dataset are checked, which is (1259 rows x 27 columns). This provides insight into the number of data points and features available for analysis.
+3. Mental Health Detection Model
+The goal of the notebook is to train a model to predict mental health conditions based on user input (likely text data).
+Various machine learning models, including logistic regression, decision tree classifiers, and ensemble models like random forests and bagging classifiers, are discussed.
+The model's ability to predict mental health states based on user responses will be evaluated using metrics like accuracy, precision, recall, F1-score, and confusion matrix.
+4. Features for Detection
+Key features in the dataset are likely analyzed to build the predictive model. This could involve text analysis, user responses, or other related data to identify mental health risks.
+5. Action Triggers (Alerts & Suggestions)
+Once the mental health condition is detected, alerts (such as an email notification) are triggered.
+The chatbot then provides users with suggestions, including:
+Music recommendations for relaxation.
+Yoga practices for mental health improvement.
+Relaxation tips based on user mood and responses.
+6. User Dashboard and Feedback
+The project includes an interactive dashboard where users can:
+Register using OTP and log in to access their personal details.
+View a mental health detection page where they can track their condition over time.
+Use the chatbot Perplexity  API to get real-time assistance with relaxation techniques and mood management.
+Download reports with their detected mental health conditions and relaxation tips.
+Update personal details and provide feedback about their experience.
+7. Mood Assistance and History
+Users can search for specific moods and explore content related to those moods, such as music, yoga videos, and other resources.
+There is an option for users to view their history of detected conditions and download detailed reports.
+8. Google Dialogflow Integration
+The chatbot uses Google Dialogflow for Natural Language Processing (NLP). Dialogflow enables the chatbot to process user inputs and provide helpful suggestions.
+The chatbot assists with mood analysis, suggests appropriate music and yoga exercises, and provides relaxation techniques.
+
+This project appears to be a comprehensive mental health assistant system that combines machine learning, NLP, and user interactivity to help individuals identify potential mental health issues, receive real-time suggestions for improvement, and track their progress. It also includes a user-friendly dashboard for personal data management and feedback.
