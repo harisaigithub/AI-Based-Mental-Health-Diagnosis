@@ -405,11 +405,11 @@ The trained mental health detection model was evaluated using key performance me
 
 
 
-## **Screenshots**  
+# **Screenshots**  
 
 Below are some screenshots showcasing the system's features and user interface:  
 
-### **Home Page**  
+## **Home Page**  
 ![Screenshot 2025-03-20 132248](https://github.com/user-attachments/assets/883877cb-6778-4049-813e-2532776d781e)
 ![Screenshot 2025-03-20 132238](https://github.com/user-attachments/assets/196049c2-c124-4e75-81f8-7bac85aec41a)
 ![Screenshot 2025-03-20 140004](https://github.com/user-attachments/assets/9ea6b073-5ff6-428c-bd68-cd853d8d57dd)
@@ -420,13 +420,13 @@ Below are some screenshots showcasing the system's features and user interface:
 
 ---
 
-### **Mental Health Detection Page** 
+## **Mental Health Detection Page** 
 ![Screenshot 2025-03-20 140057](https://github.com/user-attachments/assets/7dd44bfa-8498-46a5-84f3-d081b67047cd)
 ![Screenshot 2025-03-20 133929](https://github.com/user-attachments/assets/e46ae044-31e3-4795-9bc5-a487c994a9f8)
 
 ---
 
-### **AI Chatbot Interaction**
+## **AI Chatbot Interaction**
 ![Screenshot 2025-03-20 133915](https://github.com/user-attachments/assets/ec59b9b8-e5bd-4261-83d8-a6f2173981f0)
 ![Screenshot 2025-03-20 133920](https://github.com/user-attachments/assets/70c912e1-e076-41ce-8d3e-cae4af95ebd9)
 ![Screenshot (105)](https://github.com/user-attachments/assets/78feae67-f70e-46a2-9834-7cea8bfd175f)
@@ -436,14 +436,14 @@ Below are some screenshots showcasing the system's features and user interface:
 
 ---
 
-### **User Dashboard**  
+## **User Dashboard**  
 ![Screenshot 2025-03-20 140051](https://github.com/user-attachments/assets/a13f4470-322a-4f76-a9d0-86541b010c13)
 ![Screenshot (104)](https://github.com/user-attachments/assets/8f8cff6d-886f-48c4-a26b-38f895df183b)
 ![Screenshot (103)](https://github.com/user-attachments/assets/efd2b8ea-08b7-41be-b521-4223c703d2ea)
 
 ---
 
-### **Reports & Mood History**  
+## **Reports & Mood History**  
 ![Screenshot 2025-03-31 191740](https://github.com/user-attachments/assets/ab41a676-6094-4b80-8f3f-8e1ef21c2032)
 <img width="959" alt="image" src="https://github.com/user-attachments/assets/31cc51b2-2443-4c6b-a39a-d3766d7853b9" />
 ![Screenshot 2025-03-20 140045](https://github.com/user-attachments/assets/3cd0e1b0-0532-4d72-a20d-5c205f968eec)
