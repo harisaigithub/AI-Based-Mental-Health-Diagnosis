@@ -1,4 +1,4 @@
-# **Calmora - AI-Powered Mental Health Diagnosis System**  
+![Screenshot 2025-03-20 132248](https://github.com/user-attachments/assets/260786d3-36b2-4327-a0d4-6613231f6fda)![Screenshot 2025-03-20 132312](https://github.com/user-attachments/assets/94c84b77-af34-4845-b9c5-a9a0abbfccdd)![Screenshot 2025-03-20 132258](https://github.com/user-attachments/assets/8029e329-6bc8-4ca2-bd02-d5d7b4c1a72b)![Screenshot 2025-03-20 132248](https://github.com/user-attachments/assets/feb03c34-df3e-4565-b805-37e58ef6d6cb)![Screenshot 2025-03-20 140004](https://github.com/user-attachments/assets/f7387bf2-0a73-4a01-855d-45682310b7f6)# **Calmora - AI-Powered Mental Health Diagnosis System**  
 
 ---  
 
@@ -301,7 +301,9 @@ The **Calmora** system utilized a machine learning-based workflow to predict men
    - Enabled users to track progress and adjust wellness strategies.  
 
 ### **Workflow Diagram**  
-*(Insert workflow diagram if available)*  
+![database schema](https://github.com/user-attachments/assets/90475582-fc45-4f88-8161-4712bf82f01e)
+![System architecture schema](https://github.com/user-attachments/assets/9cde97d9-3289-43ed-a65c-4f94f5e05717)
+
 
 
 ---
@@ -395,30 +397,52 @@ The trained mental health detection model was evaluated using key performance me
 
 
 
-![Results Graph](./assets/results_graph.png)
+![final project ml model screenshot 15](https://github.com/user-attachments/assets/2ef3a35d-1980-4eeb-a6a2-f1fb15d0ff3d)
+![final project ml model screenshot 14](https://github.com/user-attachments/assets/1259ca15-a5d4-401a-a598-c2821b751d1f)
+![final project ml model screenshot 13](https://github.com/user-attachments/assets/35b8c2d8-63df-4dff-9e7b-a99a183e5346)
+![final project ml model screenshot 12](https://github.com/user-attachments/assets/92cae9ae-1cd0-4301-a22e-7e03c85ed1ea)
+![final project ml model screenshot 11](https://github.com/user-attachments/assets/696f282f-d157-470a-bbbb-a1f272956de1)
+![final project ml model screenshot 10](https://github.com/user-attachments/assets/e9255773-1bcc-41fd-a039-22ea4b515eee)
+![final project ml model screenshot 9](https://github.com/user-attachments/assets/63eb7fdd-331b-4e37-b62f-bebd00fa91f7)
+![final project ml model screenshot 25](https://github.com/user-attachments/assets/5095f5e4-239e-4a0a-b40f-d563c12be85a)
 
-You're absolutely right! Here’s the **Screenshots** and **Hosting Link** sections:  
 
----
 
 ## **Screenshots**  
 
 Below are some screenshots showcasing the system's features and user interface:  
 
 ### **Home Page**  
-*(Insert screenshot here)*  
+![Screenshot 2025-03-20 132248](https://github.com/user-attachments/assets/883877cb-6778-4049-813e-2532776d781e)
+![Screenshot 2025-03-20 132238](https://github.com/user-attachments/assets/196049c2-c124-4e75-81f8-7bac85aec41a)
+![Screenshot 2025-03-20 140004](https://github.com/user-attachments/assets/9ea6b073-5ff6-428c-bd68-cd853d8d57dd)
+![Screenshot 2025-03-20 132338](https://github.com/user-attachments/assets/e9d237ff-93ad-42bd-865b-3a6e7cc4c73c)
+![Screenshot 2025-03-20 132327](https://github.com/user-attachments/assets/2b862223-fbf8-47ea-b40f-bb673a71a7f5)
+![Screenshot 2025-03-20 132312](https://github.com/user-attachments/assets/1483cc2e-5ecf-4d5a-a4d4-46a4bb4f94c8)
+![Screenshot 2025-03-20 132258](https://github.com/user-attachments/assets/344d2c22-429f-4360-8957-1fb41d7ed7fe)
 
-### **Mental Health Detection Page**  
-*(Insert screenshot here)*  
+### **Mental Health Detection Page** 
+![Screenshot 2025-03-20 140057](https://github.com/user-attachments/assets/7dd44bfa-8498-46a5-84f3-d081b67047cd)
+![Screenshot 2025-03-20 133929](https://github.com/user-attachments/assets/e46ae044-31e3-4795-9bc5-a487c994a9f8)
 
-### **AI Chatbot Interaction**  
-*(Insert screenshot here)*  
+### **AI Chatbot Interaction**
+![Screenshot 2025-03-20 133915](https://github.com/user-attachments/assets/ec59b9b8-e5bd-4261-83d8-a6f2173981f0)
+![Screenshot 2025-03-20 133920](https://github.com/user-attachments/assets/70c912e1-e076-41ce-8d3e-cae4af95ebd9)
+![Uploading Screenshot (105).png…]()
+![Screenshot (111)](https://github.com/user-attachments/assets/1ac3d724-22af-417c-ba49-77378dc16131)
+![Screenshot (106)](https://github.com/user-attachments/assets/f56c15cf-4da8-487f-9126-81d2fedf6712)
+![Screenshot (113)](https://github.com/user-attachments/assets/5e5552d4-5202-4386-b62e-4d94daaa158d)
 
 ### **User Dashboard**  
-*(Insert screenshot here)*  
+![Screenshot 2025-03-20 140051](https://github.com/user-attachments/assets/a13f4470-322a-4f76-a9d0-86541b010c13)
+![Screenshot (104)](https://github.com/user-attachments/assets/8f8cff6d-886f-48c4-a26b-38f895df183b)
+![Screenshot (103)](https://github.com/user-attachments/assets/efd2b8ea-08b7-41be-b521-4223c703d2ea)
 
 ### **Reports & Mood History**  
-*(Insert screenshot here)*  
+![Screenshot 2025-03-31 191740](https://github.com/user-attachments/assets/ab41a676-6094-4b80-8f3f-8e1ef21c2032)
+<img width="959" alt="image" src="https://github.com/user-attachments/assets/31cc51b2-2443-4c6b-a39a-d3766d7853b9" />
+
+![Screenshot 2025-03-20 140045](https://github.com/user-attachments/assets/3cd0e1b0-0532-4d72-a20d-5c205f968eec)
 
 ---  
 
@@ -717,7 +741,7 @@ This project was open-source and distributed under the **MIT License**. This all
 ```
 MIT License
 
-Copyright (c) [Year] [Your Name]
+Copyright (c) [205] [P. Hari Sai]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy  
 of this software and associated documentation files (the "Software"), to deal  
@@ -757,7 +781,7 @@ For any inquiries, collaborations, or support, the team members could be reached
 - **Karumuru Jahnavi (Team Member 3)**  
 
 ### **Project Repository**  
-🔗 GitHub Repository: *(Insert GitHub link here)*  
+🔗 GitHub Repository: *[https://github.com/harisaigithub/AI-Based-Mental-Health-Diagnosis]*  
 
 ### **Feedback & Contributions**  
 - **Issues & Suggestions**: Users could submit issues or feature requests through the GitHub Issues section.  
