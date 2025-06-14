@@ -38,9 +38,7 @@ The system integrates **Google Dialogflow** for chatbot interactions, allowing u
 - **Automated action triggers**, including email alerts and suggestions for stress relief.  
 - **Mood-based recommendations**, such as **music therapy, yoga, and relaxation techniques**.  
 - **Downloadable reports** summarizing detected mental health conditions and personalized recommendations.  
-
-![Introduction Diagram](./assets/introduction_diagram.png)
-
+![1-Landing page 1](https://github.com/user-attachments/assets/de5c3934-665a-4b8d-98ef-ac7ffb87d00c)
 
 ---
 
