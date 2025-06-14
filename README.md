@@ -418,22 +418,30 @@ Below are some screenshots showcasing the system's features and user interface:
 ![Screenshot 2025-03-20 132312](https://github.com/user-attachments/assets/1483cc2e-5ecf-4d5a-a4d4-46a4bb4f94c8)
 ![Screenshot 2025-03-20 132258](https://github.com/user-attachments/assets/344d2c22-429f-4360-8957-1fb41d7ed7fe)
 
+---
+
 ### **Mental Health Detection Page** 
 ![Screenshot 2025-03-20 140057](https://github.com/user-attachments/assets/7dd44bfa-8498-46a5-84f3-d081b67047cd)
 ![Screenshot 2025-03-20 133929](https://github.com/user-attachments/assets/e46ae044-31e3-4795-9bc5-a487c994a9f8)
 
+---
+
 ### **AI Chatbot Interaction**
 ![Screenshot 2025-03-20 133915](https://github.com/user-attachments/assets/ec59b9b8-e5bd-4261-83d8-a6f2173981f0)
 ![Screenshot 2025-03-20 133920](https://github.com/user-attachments/assets/70c912e1-e076-41ce-8d3e-cae4af95ebd9)
-![Uploading Screenshot (105).png…]()
+![Screenshot (105)](https://github.com/user-attachments/assets/78feae67-f70e-46a2-9834-7cea8bfd175f)
 ![Screenshot (111)](https://github.com/user-attachments/assets/1ac3d724-22af-417c-ba49-77378dc16131)
 ![Screenshot (106)](https://github.com/user-attachments/assets/f56c15cf-4da8-487f-9126-81d2fedf6712)
 ![Screenshot (113)](https://github.com/user-attachments/assets/5e5552d4-5202-4386-b62e-4d94daaa158d)
+
+---
 
 ### **User Dashboard**  
 ![Screenshot 2025-03-20 140051](https://github.com/user-attachments/assets/a13f4470-322a-4f76-a9d0-86541b010c13)
 ![Screenshot (104)](https://github.com/user-attachments/assets/8f8cff6d-886f-48c4-a26b-38f895df183b)
 ![Screenshot (103)](https://github.com/user-attachments/assets/efd2b8ea-08b7-41be-b521-4223c703d2ea)
+
+---
 
 ### **Reports & Mood History**  
 ![Screenshot 2025-03-31 191740](https://github.com/user-attachments/assets/ab41a676-6094-4b80-8f3f-8e1ef21c2032)
