@@ -1,4 +1,4 @@
-![Screenshot 2025-03-20 132248](https://github.com/user-attachments/assets/260786d3-36b2-4327-a0d4-6613231f6fda)![Screenshot 2025-03-20 132312](https://github.com/user-attachments/assets/94c84b77-af34-4845-b9c5-a9a0abbfccdd)![Screenshot 2025-03-20 132258](https://github.com/user-attachments/assets/8029e329-6bc8-4ca2-bd02-d5d7b4c1a72b)![Screenshot 2025-03-20 132248](https://github.com/user-attachments/assets/feb03c34-df3e-4565-b805-37e58ef6d6cb)![Screenshot 2025-03-20 140004](https://github.com/user-attachments/assets/f7387bf2-0a73-4a01-855d-45682310b7f6)# **Calmora - AI-Powered Mental Health Diagnosis System**  
+# **Calmora - AI-Powered Mental Health Diagnosis System**  
 
 ---  
 
@@ -441,7 +441,6 @@ Below are some screenshots showcasing the system's features and user interface:
 ### **Reports & Mood History**  
 ![Screenshot 2025-03-31 191740](https://github.com/user-attachments/assets/ab41a676-6094-4b80-8f3f-8e1ef21c2032)
 <img width="959" alt="image" src="https://github.com/user-attachments/assets/31cc51b2-2443-4c6b-a39a-d3766d7853b9" />
-
 ![Screenshot 2025-03-20 140045](https://github.com/user-attachments/assets/3cd0e1b0-0532-4d72-a20d-5c205f968eec)
 
 ---  
