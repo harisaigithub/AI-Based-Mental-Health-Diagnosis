@@ -194,7 +194,6 @@ Before training the machine learning model, extensive preprocessing was performe
 - **Heatmaps and Correlation Matrices** were used to analyze feature relationships.  
 - **Sentiment Distribution Graphs** helped visualize mood patterns over time.  
 
-![Dataset Visualization](./assets/dataset_structure.png)  
 
 ---
 
